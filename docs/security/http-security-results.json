@@ -1,0 +1,142 @@
+{
+  "passed": 29,
+  "failed": 5,
+  "results": [
+    {
+      "name": "POST /health: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PUT /health: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PATCH /health: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "DELETE /health: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "OPTIONS /health: only required methods, no browser CORS grant",
+      "status": "PASS"
+    },
+    {
+      "name": "POST /config: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PUT /config: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PATCH /config: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "DELETE /config: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "OPTIONS /config: only required methods, no browser CORS grant",
+      "status": "PASS"
+    },
+    {
+      "name": "POST /numerology/definitions: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PUT /numerology/definitions: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PATCH /numerology/definitions: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "DELETE /numerology/definitions: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "OPTIONS /numerology/definitions: only required methods, no browser CORS grant",
+      "status": "PASS"
+    },
+    {
+      "name": "POST /numerology/interpretations/lifePath/8: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PUT /numerology/interpretations/lifePath/8: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PATCH /numerology/interpretations/lifePath/8: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "DELETE /numerology/interpretations/lifePath/8: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "OPTIONS /numerology/interpretations/lifePath/8: only required methods, no browser CORS grant",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /numerology/calculate: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PUT /numerology/calculate: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "PATCH /numerology/calculate: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "DELETE /numerology/calculate: framework 405",
+      "status": "PASS"
+    },
+    {
+      "name": "OPTIONS /numerology/calculate: only required methods, no browser CORS grant",
+      "status": "PASS"
+    },
+    {
+      "name": "TRACE /health: framework 405",
+      "status": "FAIL"
+    },
+    {
+      "name": "TRACE /config: framework 405",
+      "status": "FAIL"
+    },
+    {
+      "name": "TRACE /numerology/definitions: framework 405",
+      "status": "FAIL"
+    },
+    {
+      "name": "TRACE /numerology/interpretations/lifePath/8: framework 405",
+      "status": "FAIL"
+    },
+    {
+      "name": "TRACE /numerology/calculate: framework 405",
+      "status": "FAIL"
+    },
+    {
+      "name": "/health: unexpected query 400",
+      "status": "PASS"
+    },
+    {
+      "name": "/config: unexpected query 400",
+      "status": "PASS"
+    },
+    {
+      "name": "/numerology/definitions: unexpected query 400",
+      "status": "PASS"
+    },
+    {
+      "name": "4 KiB boundary and noncacheable Calculate response",
+      "status": "PASS"
+    }
+  ]
+}

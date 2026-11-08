@@ -1,0 +1,15 @@
+{
+  "contentVersion": "v1.0.0-draft",
+  "counts": {
+    "lifePath": 12,
+    "expression": 12,
+    "soulUrge": 12,
+    "personality": 12,
+    "birthday": 9,
+    "attitude": 12,
+    "maturity": 12,
+    "personalYear": 9,
+    "personalMonth": 9
+  },
+  "total": 99
+}

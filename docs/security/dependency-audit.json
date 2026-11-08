@@ -1,0 +1,25 @@
+{
+  "commands": {
+    "initial": "npm audit --omit=dev --json",
+    "removal": "npm uninstall gh --ignore-scripts --no-audit --no-fund",
+    "final": "npm audit --omit=dev --json"
+  },
+  "initialVulnerabilities": {
+    "low": 2,
+    "moderate": 9,
+    "high": 7,
+    "critical": 6,
+    "total": 24
+  },
+  "finalVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "removedDirectProductionDependency": "gh",
+  "packagesRemoved": 281,
+  "scope": "Production advisory audit at task execution; not proof against unknown vulnerabilities or a dev-dependency audit. Initial sandbox network failure was retried successfully with registry access."
+}

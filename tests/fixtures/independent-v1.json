@@ -1,0 +1,2754 @@
+[
+  {
+    "id": "A",
+    "input": {
+      "fullName": "Nguyễn Văn An",
+      "birthDate": "1990-05-20",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "NGUYEN VAN AN",
+      "nameTotal": 48,
+      "vowelTotal": 10,
+      "consonantTotal": 38
+    },
+    "lifeComponents": [
+      5,
+      2,
+      1
+    ],
+    "personalComponents": [
+      5,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "expression": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "maturity": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "personalYear": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalMonth": {
+        "value": 1,
+        "baseValue": 1
+      }
+    },
+    "arithmetic": "1990→19→10→1; 5+2+1=8; 48→12→3; 38→11; 8+3=11; 8+11=19→10→1"
+  },
+  {
+    "id": "B",
+    "input": {
+      "fullName": "Nguyễn Văn An",
+      "birthDate": "1998-02-11",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "NGUYEN VAN AN",
+      "nameTotal": 48,
+      "vowelTotal": 10,
+      "consonantTotal": 38
+    },
+    "lifeComponents": [
+      2,
+      11,
+      9
+    ],
+    "personalComponents": [
+      2,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "1998→27→9; 2+11+9=22; 2+11=13→4; 22+3=25→7; 2+2+1=5; 5+11=16→7"
+  },
+  {
+    "id": "D29",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-29",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      11,
+      2
+    ],
+    "personalComponents": [
+      1,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "maturity": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalYear": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "personalMonth": {
+        "value": 6,
+        "baseValue": 6
+      }
+    },
+    "arithmetic": "29→11; 1+11+2=14→5; direct digit total is also 14→5; Birthday still preserves 11; 1+29=30→3; 1+2+1=4"
+  },
+  {
+    "id": "D30",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-30",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      3,
+      2
+    ],
+    "personalComponents": [
+      1,
+      3,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "attitude": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "30→3; 1+3+2=6; 1+30=31→4; 1+3+1=5"
+  },
+  {
+    "id": "D31",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-31",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      4,
+      2
+    ],
+    "personalComponents": [
+      1,
+      4,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "attitude": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "maturity": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalYear": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalMonth": {
+        "value": 8,
+        "baseValue": 8
+      }
+    },
+    "arithmetic": "31→4; 1+4+2=7; 1+31=32→5; 1+4+1=6"
+  },
+  {
+    "id": "LEAP400",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-02-29",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      11,
+      2
+    ],
+    "personalComponents": [
+      2,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "2000 divisible by 400; 29→11; 2+11+2=15→6; 2+29=31→4"
+  },
+  {
+    "id": "LEAP4",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2024-02-29",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      11,
+      8
+    ],
+    "personalComponents": [
+      2,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "2024→8; 2+11+8=21→3; 2+2+1=5"
+  },
+  {
+    "id": "LP33",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "1998-02-22",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      22,
+      9
+    ],
+    "personalComponents": [
+      2,
+      4,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "attitude": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalMonth": {
+        "value": 9,
+        "baseValue": 9
+      }
+    },
+    "arithmetic": "2+22+9=33; 2+22=24→6; 33+2=35→8; 2+4+1=7"
+  },
+  {
+    "id": "YEAR22",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "1984-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      1,
+      22
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "1984→22; 1+1+22=24→6 whereas direct digit total 24 also 6; retained year component 22 differs from 4"
+  },
+  {
+    "id": "YEAR11",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2009-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      1,
+      11
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "2009→11; 1+1+11=13→4; year component remains 11"
+  },
+  {
+    "id": "MINYEAR",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "0001-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      1,
+      1
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "0001→1; 1+1+1=3"
+  },
+  {
+    "id": "MAXYEAR",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "9999-12-31",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      3,
+      4,
+      9
+    ],
+    "personalComponents": [
+      3,
+      4,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "attitude": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "maturity": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalYear": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalMonth": {
+        "value": 1,
+        "baseValue": 1
+      }
+    },
+    "arithmetic": "9999→36→9; 12→3; 31→4; 3+4+9=16→7; 12+31=43→7"
+  },
+  {
+    "id": "DEC",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-07",
+      "referenceDate": "2026-12-31",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      7,
+      2
+    ],
+    "personalComponents": [
+      1,
+      7,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalMonth": {
+        "value": 3,
+        "baseValue": 3
+      }
+    },
+    "arithmetic": "1+7+1=9; personal month 9+12=21→3"
+  },
+  {
+    "id": "JAN",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-07",
+      "referenceDate": "2027-01-01",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      7,
+      2
+    ],
+    "personalComponents": [
+      1,
+      7,
+      2
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalMonth": {
+        "value": 2,
+        "baseValue": 2
+      }
+    },
+    "arithmetic": "2027→11→2 without masters; 1+7+2=10→1; 1+1=2; year 9→1"
+  },
+  {
+    "id": "ATT33",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-11-22",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      11,
+      22,
+      2
+    ],
+    "personalComponents": [
+      2,
+      4,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "attitude": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "maturity": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalYear": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalMonth": {
+        "value": 9,
+        "baseValue": 9
+      }
+    },
+    "arithmetic": "11+22+2=35→8; attitude 11+22=33; maturity 8+2=10→1"
+  },
+  {
+    "id": "EX11",
+    "input": {
+      "fullName": "E F",
+      "birthDate": "2000-01-08",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "E F",
+      "nameTotal": 11,
+      "vowelTotal": 5,
+      "consonantTotal": 6
+    },
+    "lifeComponents": [
+      1,
+      8,
+      2
+    ],
+    "personalComponents": [
+      1,
+      8,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "expression": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personality": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "birthday": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "attitude": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "maturity": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "personalYear": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalMonth": {
+        "value": 3,
+        "baseValue": 3
+      }
+    },
+    "arithmetic": "E5+F6=11; life 1+8+2=11; maturity 11+11=22"
+  },
+  {
+    "id": "EX22",
+    "input": {
+      "fullName": "I D I",
+      "birthDate": "2000-01-08",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "I D I",
+      "nameTotal": 22,
+      "vowelTotal": 18,
+      "consonantTotal": 4
+    },
+    "lifeComponents": [
+      1,
+      8,
+      2
+    ],
+    "personalComponents": [
+      1,
+      8,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "expression": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "soulUrge": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personality": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "birthday": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "attitude": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "maturity": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalMonth": {
+        "value": 3,
+        "baseValue": 3
+      }
+    },
+    "arithmetic": "I9+D4+I9=22; vowels18→9; maturity 11+22=33"
+  },
+  {
+    "id": "EX33",
+    "input": {
+      "fullName": "I I I F",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "I I I F",
+      "nameTotal": 33,
+      "vowelTotal": 27,
+      "consonantTotal": 6
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "soulUrge": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personality": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "9+9+9+6=33; vowels27→9; maturity 4+33=37→10→1"
+  },
+  {
+    "id": "SOUL11",
+    "input": {
+      "fullName": "AAI B",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "AAI B",
+      "nameTotal": 13,
+      "vowelTotal": 11,
+      "consonantTotal": 2
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "soulUrge": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "personality": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "vowels1+1+9=11; total13→4; maturity4+4=8"
+  },
+  {
+    "id": "SOUL22",
+    "input": {
+      "fullName": "IIAAAA B",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "IIAAAA B",
+      "nameTotal": 24,
+      "vowelTotal": 22,
+      "consonantTotal": 2
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "soulUrge": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "personality": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "vowels9+9+1+1+1+1=22; total24→6; maturity4+6=10→1"
+  },
+  {
+    "id": "SOUL33",
+    "input": {
+      "fullName": "IIIAAAAAA B",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "IIIAAAAAA B",
+      "nameTotal": 35,
+      "vowelTotal": 33,
+      "consonantTotal": 2
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "soulUrge": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "personality": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "vowels27+6=33; total35→8; maturity4+8=12→3"
+  },
+  {
+    "id": "PERS11",
+    "input": {
+      "fullName": "A KR",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A KR",
+      "nameTotal": 12,
+      "vowelTotal": 1,
+      "consonantTotal": 11
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "consonants2+9=11; total12→3"
+  },
+  {
+    "id": "PERS22",
+    "input": {
+      "fullName": "A RR D",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A RR D",
+      "nameTotal": 23,
+      "vowelTotal": 1,
+      "consonantTotal": 22
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "consonants9+9+4=22; total23→5"
+  },
+  {
+    "id": "PERS33",
+    "input": {
+      "fullName": "A RRR F",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A RRR F",
+      "nameTotal": 34,
+      "vowelTotal": 1,
+      "consonantTotal": 33
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 33,
+        "baseValue": 6
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "consonants9+9+9+6=33; total34→7; maturity4+7=11"
+  },
+  {
+    "id": "INTER11",
+    "input": {
+      "fullName": "I I I B",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "I I I B",
+      "nameTotal": 29,
+      "vowelTotal": 27,
+      "consonantTotal": 2
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personality": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "total29→11; maturity4+11=15→6"
+  },
+  {
+    "id": "VIET",
+    "input": {
+      "fullName": "đẶng",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "DANG",
+      "nameTotal": 17,
+      "vowelTotal": 1,
+      "consonantTotal": 16
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "D4+A1+N5+G7=17; consonants16→7; maturity4+8=12→3"
+  },
+  {
+    "id": "YCONS",
+    "input": {
+      "fullName": "Y An",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "Y AN",
+      "nameTotal": 13,
+      "vowelTotal": 1,
+      "consonantTotal": 12
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "Y7+A1+N5=13; consonants12→3; Y is not a vowel"
+  },
+  {
+    "id": "SINGLE1",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      1,
+      2
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "life components 1+1+2; attitude 1+1; maturity 4+2; personal year 1+1+1; personal month 3+11"
+  },
+  {
+    "id": "SINGLE2",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-02",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      2,
+      2
+    ],
+    "personalComponents": [
+      1,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "maturity": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalYear": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "personalMonth": {
+        "value": 6,
+        "baseValue": 6
+      }
+    },
+    "arithmetic": "life components 1+2+2; attitude 1+2; maturity 5+2; personal year 1+2+1; personal month 4+11"
+  },
+  {
+    "id": "SINGLE3",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-03",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      3,
+      2
+    ],
+    "personalComponents": [
+      1,
+      3,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "attitude": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "life components 1+3+2; attitude 1+3; maturity 6+2; personal year 1+3+1; personal month 5+11"
+  },
+  {
+    "id": "SINGLE4",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-04",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      4,
+      2
+    ],
+    "personalComponents": [
+      1,
+      4,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "attitude": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "maturity": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalYear": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalMonth": {
+        "value": 8,
+        "baseValue": 8
+      }
+    },
+    "arithmetic": "life components 1+4+2; attitude 1+4; maturity 7+2; personal year 1+4+1; personal month 6+11"
+  },
+  {
+    "id": "SINGLE5",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-05",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      5,
+      2
+    ],
+    "personalComponents": [
+      1,
+      5,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "attitude": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "maturity": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalYear": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "personalMonth": {
+        "value": 9,
+        "baseValue": 9
+      }
+    },
+    "arithmetic": "life components 1+5+2; attitude 1+5; maturity 8+2; personal year 1+5+1; personal month 7+11"
+  },
+  {
+    "id": "SINGLE6",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-06",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      6,
+      2
+    ],
+    "personalComponents": [
+      1,
+      6,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "attitude": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "maturity": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "personalYear": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalMonth": {
+        "value": 1,
+        "baseValue": 1
+      }
+    },
+    "arithmetic": "life components 1+6+2; attitude 1+6; maturity 9+2; personal year 1+6+1; personal month 8+11"
+  },
+  {
+    "id": "SINGLE7",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-07",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      7,
+      2
+    ],
+    "personalComponents": [
+      1,
+      7,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalMonth": {
+        "value": 2,
+        "baseValue": 2
+      }
+    },
+    "arithmetic": "life components 1+7+2; attitude 1+7; maturity 1+2; personal year 1+7+1; personal month 9+11"
+  },
+  {
+    "id": "SINGLE8",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-08",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      8,
+      2
+    ],
+    "personalComponents": [
+      1,
+      8,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "attitude": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "maturity": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "personalYear": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalMonth": {
+        "value": 3,
+        "baseValue": 3
+      }
+    },
+    "arithmetic": "life components 1+8+2; attitude 1+8; maturity 11+2; personal year 1+8+1; personal month 1+11"
+  },
+  {
+    "id": "SINGLE9",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-09",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      9,
+      2
+    ],
+    "personalComponents": [
+      1,
+      9,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "attitude": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "maturity": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalYear": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "personalMonth": {
+        "value": 4,
+        "baseValue": 4
+      }
+    },
+    "arithmetic": "life components 1+9+2; attitude 1+9; maturity 3+2; personal year 1+9+1; personal month 2+11"
+  },
+  {
+    "id": "LP2",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-11-07",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      11,
+      7,
+      2
+    ],
+    "personalComponents": [
+      2,
+      7,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "maturity": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "personalYear": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalMonth": {
+        "value": 3,
+        "baseValue": 3
+      }
+    },
+    "arithmetic": "11+7+2=20→2; attitude11+7=18→9; maturity2+2=4; personal2+7+1=10→1"
+  },
+  {
+    "id": "YEAR33",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "9996-01-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      1,
+      33
+    ],
+    "personalComponents": [
+      1,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "9996→33; 1+1+33=35→8; maturity8+2=10→1"
+  },
+  {
+    "id": "JUNE",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-07",
+      "referenceDate": "2026-06-30",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      7,
+      2
+    ],
+    "personalComponents": [
+      1,
+      7,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalMonth": {
+        "value": 6,
+        "baseValue": 6
+      }
+    },
+    "arithmetic": "personal year1+7+1=9; month9+6=15→6"
+  },
+  {
+    "id": "JULY",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-01-07",
+      "referenceDate": "2026-07-01",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      1,
+      7,
+      2
+    ],
+    "personalComponents": [
+      1,
+      7,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 7,
+        "baseValue": 7
+      },
+      "attitude": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "maturity": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalYear": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "personal year1+7+1=9; month9+7=16→7"
+  },
+  {
+    "id": "ATT11",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-02-09",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      9,
+      2
+    ],
+    "personalComponents": [
+      2,
+      9,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 9,
+        "baseValue": 9
+      },
+      "attitude": {
+        "value": 11,
+        "baseValue": 2
+      },
+      "maturity": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "personalMonth": {
+        "value": 5,
+        "baseValue": 5
+      }
+    },
+    "arithmetic": "2+9+2=13→4; attitude2+9=11; maturity4+2=6; personal2+9+1=12→3"
+  },
+  {
+    "id": "ATT22",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "2000-02-20",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      2,
+      2
+    ],
+    "personalComponents": [
+      2,
+      2,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "attitude": {
+        "value": 22,
+        "baseValue": 4
+      },
+      "maturity": {
+        "value": 8,
+        "baseValue": 8
+      },
+      "personalYear": {
+        "value": 5,
+        "baseValue": 5
+      },
+      "personalMonth": {
+        "value": 7,
+        "baseValue": 7
+      }
+    },
+    "arithmetic": "20→2; 2+2+2=6; attitude2+20=22; personal2+2+1=5"
+  },
+  {
+    "id": "SEGMENT",
+    "input": {
+      "fullName": "A J",
+      "birthDate": "1990-02-01",
+      "referenceDate": "2026-11-08",
+      "locale": "vi"
+    },
+    "name": {
+      "normalizedName": "A J",
+      "nameTotal": 2,
+      "vowelTotal": 1,
+      "consonantTotal": 1
+    },
+    "lifeComponents": [
+      2,
+      1,
+      1
+    ],
+    "personalComponents": [
+      2,
+      1,
+      1
+    ],
+    "expected": {
+      "lifePath": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "expression": {
+        "value": 2,
+        "baseValue": 2
+      },
+      "soulUrge": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "personality": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "birthday": {
+        "value": 1,
+        "baseValue": 1
+      },
+      "attitude": {
+        "value": 3,
+        "baseValue": 3
+      },
+      "maturity": {
+        "value": 6,
+        "baseValue": 6
+      },
+      "personalYear": {
+        "value": 4,
+        "baseValue": 4
+      },
+      "personalMonth": {
+        "value": 6,
+        "baseValue": 6
+      }
+    },
+    "arithmetic": "1990→19→10→1; segmented2+1+1=4, whereas direct unreduced birth digits sum19+2+1=22; attitude2+1=3; maturity4+2=6; personal2+1+1=4"
+  }
+]

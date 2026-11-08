@@ -1,0 +1,534 @@
+{
+  "locale": "vi",
+  "contentVersion": "v1.0.0-draft",
+  "index": "maturity",
+  "items": [
+    {
+      "index": "maturity",
+      "value": 1,
+      "baseValue": 1,
+      "title": "Người Mở Lối",
+      "subtitle": "Can đảm bắt đầu từ chính mình",
+      "tagline": "Số trưởng thành 1 · Can đảm bắt đầu từ chính mình",
+      "summary": "Số trưởng thành 1 mang chủ đề tinh thần độc lập, sự chủ động và khát vọng làm điều khác biệt. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhìn ra điểm khởi đầu khi người khác còn chờ một lời chỉ dẫn. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Mở Lối là hình ảnh biểu tượng của tinh thần độc lập, sự chủ động và khát vọng làm điều khác biệt. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhìn ra điểm khởi đầu khi người khác còn chờ một lời chỉ dẫn. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Dám khởi xướng",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'dám khởi xướng' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Tự đưa ra quyết định",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'tự đưa ra quyết định' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Biến ý tưởng thành bước đầu tiên",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'biến ý tưởng thành bước đầu tiên' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ đồng nhất tự chủ với việc phải làm một mình",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Nóng vội khi người khác chưa theo kịp nhịp độ",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 1 nhắc bạn về việc thành thật về nhu cầu riêng mà không biến sự độc lập thành khoảng cách. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ các công việc cần tinh thần khởi xướng, tự chịu trách nhiệm và thử nghiệm ý tưởng. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Sự tự tin vững bền không đòi hỏi bạn lúc nào cũng dẫn đầu. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Khởi động một việc bạn đã trì hoãn, rồi mời một người góp ý trước khi đi quá xa. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Điều gì bạn thật sự muốn bắt đầu, ngay cả khi chưa có ai đồng tình?",
+      "affirmation": "Tôi có thể đi con đường riêng và vẫn mở lòng với sự đồng hành.",
+      "keywords": [
+        "tinh thần độc lập",
+        "sự chủ động và khát vọng làm điều khác biệt"
+      ],
+      "suggestedAction": "Khởi động một việc bạn đã trì hoãn, rồi mời một người góp ý trước khi đi quá xa."
+    },
+    {
+      "index": "maturity",
+      "value": 2,
+      "baseValue": 2,
+      "title": "Người Dệt Kết Nối",
+      "subtitle": "Sức mạnh của sự tinh tế",
+      "tagline": "Số trưởng thành 2 · Sức mạnh của sự tinh tế",
+      "summary": "Số trưởng thành 2 mang chủ đề khả năng lắng nghe, cộng tác và nhận ra những sắc thái cảm xúc. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhìn thấy điều chưa được nói thành lời và kết nối những khác biệt. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Dệt Kết Nối là hình ảnh biểu tượng của khả năng lắng nghe, cộng tác và nhận ra những sắc thái cảm xúc. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhìn thấy điều chưa được nói thành lời và kết nối những khác biệt. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Lắng nghe có chiều sâu",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'lắng nghe có chiều sâu' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Hợp tác khéo léo",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'hợp tác khéo léo' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Nhạy cảm với bầu không khí xung quanh",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'nhạy cảm với bầu không khí xung quanh' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ im lặng để giữ hòa khí dù bản thân không thoải mái",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể chờ sự đồng thuận quá lâu trước quyết định cần thiết",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 2 nhắc bạn về việc nói rõ mong muốn của mình thay vì hy vọng người kia tự hiểu. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ các vai trò phối hợp, kết nối con người và giải quyết bất đồng. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Sự dịu dàng không đồng nghĩa với việc từ bỏ ranh giới. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Thực hành một cuộc trò chuyện mà bạn nói rõ mong muốn của mình bằng giọng điệu bình tĩnh. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Ở đâu bạn đang cố giữ hòa khí bằng cách bỏ qua tiếng nói của mình?",
+      "affirmation": "Tôi có thể tử tế với người khác mà vẫn trung thành với nhu cầu của mình.",
+      "keywords": [
+        "khả năng lắng nghe",
+        "cộng tác và nhận ra những sắc thái cảm xúc"
+      ],
+      "suggestedAction": "Thực hành một cuộc trò chuyện mà bạn nói rõ mong muốn của mình bằng giọng điệu bình tĩnh."
+    },
+    {
+      "index": "maturity",
+      "value": 3,
+      "baseValue": 3,
+      "title": "Người Thắp Sáng Ý Tưởng",
+      "subtitle": "Khi tiếng nói trở thành sắc màu",
+      "tagline": "Số trưởng thành 3 · Khi tiếng nói trở thành sắc màu",
+      "summary": "Số trưởng thành 3 mang chủ đề khả năng biểu đạt, óc sáng tạo và niềm vui chia sẻ. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng biến điều tưởng chừng bình thường thành một câu chuyện giàu sức sống. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Thắp Sáng Ý Tưởng là hình ảnh biểu tượng của khả năng biểu đạt, óc sáng tạo và niềm vui chia sẻ. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình biến điều tưởng chừng bình thường thành một câu chuyện giàu sức sống. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Diễn đạt lôi cuốn",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'diễn đạt lôi cuốn' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Nhìn thấy khả năng mới",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'nhìn thấy khả năng mới' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Lan tỏa bầu không khí tích cực",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'lan tỏa bầu không khí tích cực' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ bắt đầu nhiều ý tưởng mà chưa hoàn tất",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể che giấu nỗi buồn dưới sự vui vẻ quen thuộc",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 3 nhắc bạn về việc để sự chân thành có chỗ đứng bên cạnh tính hài hước và sức hút. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ sáng tạo nội dung, nghệ thuật, truyền thông, giáo dục hoặc các công việc cần biểu đạt. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Một ý tưởng tỏa sáng nhất khi được nuôi dưỡng đến ngày thành hình. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Chọn một ý tưởng sáng tạo và hoàn thành phiên bản nhỏ nhất của nó. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Ý tưởng nào xứng đáng được bạn dành sự kiên trì, thay vì chỉ một phút hào hứng?",
+      "affirmation": "Tôi trân trọng tiếng nói riêng và cho ý tưởng thời gian trưởng thành.",
+      "keywords": [
+        "khả năng biểu đạt",
+        "óc sáng tạo và niềm vui chia sẻ"
+      ],
+      "suggestedAction": "Chọn một ý tưởng sáng tạo và hoàn thành phiên bản nhỏ nhất của nó."
+    },
+    {
+      "index": "maturity",
+      "value": 4,
+      "baseValue": 4,
+      "title": "Người Xây Nền Vững Chắc",
+      "subtitle": "Sức mạnh của những điều bền bỉ",
+      "tagline": "Số trưởng thành 4 · Sức mạnh của những điều bền bỉ",
+      "summary": "Số trưởng thành 4 mang chủ đề trật tự, sự tin cậy và năng lực xây dựng từng bước. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng biến một mục tiêu mơ hồ thành quy trình có thể thực hiện. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Xây Nền Vững Chắc là hình ảnh biểu tượng của trật tự, sự tin cậy và năng lực xây dựng từng bước. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình biến một mục tiêu mơ hồ thành quy trình có thể thực hiện. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Kiên trì qua chi tiết",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'kiên trì qua chi tiết' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Giữ lời hứa",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'giữ lời hứa' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Tạo hệ thống đáng tin cậy",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'tạo hệ thống đáng tin cậy' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Khó thoải mái trước thay đổi bất ngờ",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Dễ đo giá trị bản thân bằng mức độ hữu ích",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 4 nhắc bạn về việc cho phép những khoảnh khắc tự nhiên tồn tại mà không cần lên kế hoạch. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ vận hành, kỹ thuật, quản lý chất lượng, tài chính hoặc các hệ thống cần tính ổn định. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Một nền móng chắc chắn cũng cần những khoảng mở để đón điều mới. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Thử thay đổi một thói quen quen thuộc để xem điều gì thực sự cần giữ lại. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Có quy tắc nào từng giúp bạn an toàn nhưng hôm nay đang giới hạn bạn?",
+      "affirmation": "Tôi xây dựng sự vững vàng mà vẫn có quyền thay đổi.",
+      "keywords": [
+        "trật tự",
+        "sự tin cậy và năng lực xây dựng từng bước"
+      ],
+      "suggestedAction": "Thử thay đổi một thói quen quen thuộc để xem điều gì thực sự cần giữ lại."
+    },
+    {
+      "index": "maturity",
+      "value": 5,
+      "baseValue": 5,
+      "title": "Người Đi Tìm Chân Trời",
+      "subtitle": "Tự do bắt đầu từ sự lựa chọn",
+      "tagline": "Số trưởng thành 5 · Tự do bắt đầu từ sự lựa chọn",
+      "summary": "Số trưởng thành 5 mang chủ đề tinh thần khám phá, sự linh hoạt và nhu cầu trải nghiệm. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhận ra cơ hội trong thay đổi và thích nghi với điều chưa biết. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Đi Tìm Chân Trời là hình ảnh biểu tượng của tinh thần khám phá, sự linh hoạt và nhu cầu trải nghiệm. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhận ra cơ hội trong thay đổi và thích nghi với điều chưa biết. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Thích nghi nhanh",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'thích nghi nhanh' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Cởi mở với trải nghiệm",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'cởi mở với trải nghiệm' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Dám đặt câu hỏi cho lối mòn",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'dám đặt câu hỏi cho lối mòn' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ đổi hướng trước khi kịp đi sâu",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể nhầm lẫn cam kết với việc mất tự do",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 5 nhắc bạn về việc tạo không gian riêng trong một mối quan hệ có sự tin cậy. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ những môi trường đa dạng, giao tiếp, trải nghiệm, đổi mới hoặc giải quyết vấn đề linh hoạt. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Tự do trưởng thành khi bạn hiểu lý do mình chọn ở lại. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Dành không gian trải nghiệm điều mới nhưng xác định một cam kết bạn sẽ theo đến cùng. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Bạn đang tìm một cơ hội mới, hay đang né một điều cần đối diện?",
+      "affirmation": "Tôi tự do khám phá và đủ vững vàng để chọn điều có ý nghĩa.",
+      "keywords": [
+        "tinh thần khám phá",
+        "sự linh hoạt và nhu cầu trải nghiệm"
+      ],
+      "suggestedAction": "Dành không gian trải nghiệm điều mới nhưng xác định một cam kết bạn sẽ theo đến cùng."
+    },
+    {
+      "index": "maturity",
+      "value": 6,
+      "baseValue": 6,
+      "title": "Người Giữ Lửa Yêu Thương",
+      "subtitle": "Chăm sóc cũng cần giới hạn",
+      "tagline": "Số trưởng thành 6 · Chăm sóc cũng cần giới hạn",
+      "summary": "Số trưởng thành 6 mang chủ đề tình yêu thương, trách nhiệm và mong muốn tạo sự hài hòa. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhận ra nhu cầu chăm sóc và tạo cảm giác được chào đón. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Giữ Lửa Yêu Thương là hình ảnh biểu tượng của tình yêu thương, trách nhiệm và mong muốn tạo sự hài hòa. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhận ra nhu cầu chăm sóc và tạo cảm giác được chào đón. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Quan tâm chu đáo",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'quan tâm chu đáo' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Có trách nhiệm",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'có trách nhiệm' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Biết vun đắp môi trường ấm áp",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'biết vun đắp môi trường ấm áp' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ gánh việc không thuộc trách nhiệm của mình",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể đặt tiêu chuẩn quá cao cho người thân và chính mình",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 6 nhắc bạn về việc yêu thương bằng sự hiện diện, không bằng việc giải quyết mọi vấn đề thay người khác. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ giáo dục, chăm sóc, thiết kế trải nghiệm, dịch vụ hoặc xây dựng cộng đồng. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Tình thương bền vững luôn có một chỗ dành cho chính bạn. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Đặt một ranh giới chăm sóc bản thân trước khi nhận thêm trách nhiệm. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Bạn có đang chăm sóc ai đó theo cách khiến bản thân ngày càng kiệt sức?",
+      "affirmation": "Tôi có thể yêu thương sâu sắc mà không phải gánh thay cuộc đời người khác.",
+      "keywords": [
+        "tình yêu thương",
+        "trách nhiệm và mong muốn tạo sự hài hòa"
+      ],
+      "suggestedAction": "Đặt một ranh giới chăm sóc bản thân trước khi nhận thêm trách nhiệm."
+    },
+    {
+      "index": "maturity",
+      "value": 7,
+      "baseValue": 7,
+      "title": "Người Giải Mã Chiều Sâu",
+      "subtitle": "Bình yên trong hành trình tìm hiểu",
+      "tagline": "Số trưởng thành 7 · Bình yên trong hành trình tìm hiểu",
+      "summary": "Số trưởng thành 7 mang chủ đề suy ngẫm, tri thức và nhu cầu tìm lời giải có ý nghĩa. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhận ra những câu hỏi quan trọng phía sau bề mặt sự việc. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Giải Mã Chiều Sâu là hình ảnh biểu tượng của suy ngẫm, tri thức và nhu cầu tìm lời giải có ý nghĩa. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhận ra những câu hỏi quan trọng phía sau bề mặt sự việc. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Phân tích sắc sảo",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'phân tích sắc sảo' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Tập trung tìm hiểu",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'tập trung tìm hiểu' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Độc lập trong suy nghĩ",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'độc lập trong suy nghĩ' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ suy nghĩ quá lâu trước khi hành động",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể giữ khoảng cách khi cảm xúc khó gọi tên",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 7 nhắc bạn về việc chia sẻ những điều chưa chắc chắn thay vì chỉ nói ra khi đã hiểu rõ. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ nghiên cứu, dữ liệu, công nghệ, viết lách hoặc lĩnh vực cần chiều sâu tư duy. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Không phải trải nghiệm nào cũng cần được giải thích trọn vẹn mới đáng sống. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Viết ra điều bạn đã hiểu, rồi thử nghiệm một bước nhỏ trong thực tế. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Điều gì bạn đang cố phân tích, trong khi có lẽ cần cảm nhận trước?",
+      "affirmation": "Tôi tin vào trí tuệ của mình và cũng cho phép trái tim lên tiếng.",
+      "keywords": [
+        "suy ngẫm",
+        "tri thức và nhu cầu tìm lời giải có ý nghĩa"
+      ],
+      "suggestedAction": "Viết ra điều bạn đã hiểu, rồi thử nghiệm một bước nhỏ trong thực tế."
+    },
+    {
+      "index": "maturity",
+      "value": 8,
+      "baseValue": 8,
+      "title": "Người Kiến Tạo Thành Tựu",
+      "subtitle": "Sức mạnh của sự kiến tạo",
+      "tagline": "Số trưởng thành 8 · Sức mạnh của sự kiến tạo",
+      "summary": "Số trưởng thành 8 mang chủ đề năng lực tổ chức, trách nhiệm và mong muốn tạo ra kết quả thực tế. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhìn thấy bức tranh lớn và kiên trì biến kế hoạch thành kết quả. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Kiến Tạo Thành Tựu là hình ảnh biểu tượng của năng lực tổ chức, trách nhiệm và mong muốn tạo ra kết quả thực tế. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhìn thấy bức tranh lớn và kiên trì biến kế hoạch thành kết quả. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Tư duy chiến lược",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'tư duy chiến lược' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Khả năng tổ chức nguồn lực",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'khả năng tổ chức nguồn lực' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Bền bỉ trước thử thách",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'bền bỉ trước thử thách' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ tự đánh giá qua thành tích hoặc sự công nhận",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể cố kiểm soát mọi thứ để cảm thấy an toàn",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 8 nhắc bạn về việc lắng nghe và bộc lộ cảm xúc bên cạnh việc thể hiện trách nhiệm bằng hành động. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ quản trị, kinh doanh, vận hành, tài chính hoặc những dự án đòi hỏi tầm nhìn và kỷ luật. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Thành tựu có ý nghĩa nhất khi không đánh đổi toàn bộ sự bình an. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Xác định một mục tiêu cụ thể và một giới hạn giúp bạn giữ cân bằng. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Nếu không cần chứng minh điều gì, bạn muốn xây dựng cuộc sống ra sao?",
+      "affirmation": "Tôi theo đuổi thành tựu và vẫn xứng đáng được nghỉ ngơi.",
+      "keywords": [
+        "năng lực tổ chức",
+        "trách nhiệm và mong muốn tạo ra kết quả thực tế"
+      ],
+      "suggestedAction": "Xác định một mục tiêu cụ thể và một giới hạn giúp bạn giữ cân bằng."
+    },
+    {
+      "index": "maturity",
+      "value": 9,
+      "baseValue": 9,
+      "title": "Người Gieo Lòng Nhân Ái",
+      "subtitle": "Lòng trắc ẩn có hướng đi",
+      "tagline": "Số trưởng thành 9 · Lòng trắc ẩn có hướng đi",
+      "summary": "Số trưởng thành 9 mang chủ đề sự bao dung, góc nhìn rộng và khát vọng đóng góp. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng nhìn thấy câu chuyện của người khác mà không vội phán xét. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Gieo Lòng Nhân Ái là hình ảnh biểu tượng của sự bao dung, góc nhìn rộng và khát vọng đóng góp. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình nhìn thấy câu chuyện của người khác mà không vội phán xét. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Đồng cảm rộng mở",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'đồng cảm rộng mở' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Nhìn vấn đề từ nhiều phía",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'nhìn vấn đề từ nhiều phía' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Khơi dậy mục tiêu ý nghĩa",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'khơi dậy mục tiêu ý nghĩa' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ mang theo nỗi buồn không thuộc về mình",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể khó buông bỏ kỳ vọng hay câu chuyện đã cũ",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 9 nhắc bạn về việc cho đi bằng lựa chọn tự nguyện thay vì cảm giác phải cứu giúp. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ giáo dục, hoạt động cộng đồng, nghệ thuật, tư vấn phi lâm sàng hoặc những công việc có mục tiêu xã hội. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Không phải mọi điều đáng thương đều là trách nhiệm bạn phải gánh. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Chọn một việc có ích trong tầm sức, đồng thời buông một kỳ vọng không còn phù hợp. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Bạn cần buông điều gì để lòng tốt không trở thành một gánh nặng?",
+      "affirmation": "Tôi có thể sống nhân ái mà vẫn giữ sự nguyên vẹn của mình.",
+      "keywords": [
+        "sự bao dung",
+        "góc nhìn rộng và khát vọng đóng góp"
+      ],
+      "suggestedAction": "Chọn một việc có ích trong tầm sức, đồng thời buông một kỳ vọng không còn phù hợp."
+    },
+    {
+      "index": "maturity",
+      "value": 11,
+      "baseValue": 2,
+      "title": "Người Đánh Thức Trực Giác",
+      "subtitle": "Lắng nghe ánh sáng bên trong",
+      "tagline": "Số trưởng thành 11 · Lắng nghe ánh sáng bên trong",
+      "summary": "Số trưởng thành 11 mang chủ đề độ nhạy cảm, trực giác và khả năng truyền cảm hứng. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng cảm nhận những sắc thái tinh tế rồi chuyển chúng thành góc nhìn mới. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Đánh Thức Trực Giác là hình ảnh biểu tượng của độ nhạy cảm, trực giác và khả năng truyền cảm hứng. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình cảm nhận những sắc thái tinh tế rồi chuyển chúng thành góc nhìn mới. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Nhạy cảm với ý nghĩa",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'nhạy cảm với ý nghĩa' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Truyền cảm hứng chân thành",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'truyền cảm hứng chân thành' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Thấu hiểu những điều khó diễn đạt",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'thấu hiểu những điều khó diễn đạt' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ quá tải khi kỳ vọng nhiều ở bản thân",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể dao động giữa lý tưởng lớn và sự nghi ngờ chính mình",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 11 nhắc bạn về việc giữ ranh giới cảm xúc để sự thấu hiểu không trở thành kiệt sức. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ sáng tạo, giáo dục, nghệ thuật, nghiên cứu con người hoặc công việc cần sự nhạy bén. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Trực giác hữu ích nhất khi có sự kiểm chứng và những bước đi vững chắc. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Ghi lại trực giác của bạn và kiểm chứng bằng trải nghiệm hoặc dữ kiện. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Bạn có thể biến một cảm nhận mạnh mẽ thành hành động nhỏ, rõ ràng nào?",
+      "affirmation": "Tôi trân trọng sự nhạy cảm và giữ đôi chân chạm đất.",
+      "keywords": [
+        "độ nhạy cảm",
+        "trực giác và khả năng truyền cảm hứng"
+      ],
+      "suggestedAction": "Ghi lại trực giác của bạn và kiểm chứng bằng trải nghiệm hoặc dữ kiện."
+    },
+    {
+      "index": "maturity",
+      "value": 22,
+      "baseValue": 4,
+      "title": "Kiến Trúc Sư Của Tầm Nhìn",
+      "subtitle": "Đưa giấc mơ vào đời sống",
+      "tagline": "Số trưởng thành 22 · Đưa giấc mơ vào đời sống",
+      "summary": "Số trưởng thành 22 mang chủ đề khả năng kết hợp tầm nhìn lớn với hành động có cấu trúc. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng biến ý tưởng dài hạn thành những phần việc có thể xây dựng cùng người khác. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Kiến Trúc Sư Của Tầm Nhìn là hình ảnh biểu tượng của khả năng kết hợp tầm nhìn lớn với hành động có cấu trúc. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình biến ý tưởng dài hạn thành những phần việc có thể xây dựng cùng người khác. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Nhìn xa và có hệ thống",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'nhìn xa và có hệ thống' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Kết nối nguồn lực",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'kết nối nguồn lực' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Kiên trì với giá trị dài hạn",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'kiên trì với giá trị dài hạn' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ cảm thấy áp lực phải làm điều thật lớn",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể trì hoãn vì tiêu chuẩn hoàn hảo",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 22 nhắc bạn về việc đặt sự hiện diện trong hiện tại ngang hàng với những kế hoạch tương lai. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ kiến tạo tổ chức, phát triển sản phẩm, dự án cộng đồng hoặc các công việc cần tầm nhìn và thực thi. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Một tầm nhìn lớn không cần được chứng minh trong một ngày. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Chia tầm nhìn dài hạn thành ba bước có thể đo lường và bắt đầu bước đầu tiên. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Bước nhỏ có thể thực hiện tuần này cho điều bạn ấp ủ lâu dài là gì?",
+      "affirmation": "Tôi kiên nhẫn xây dựng điều lớn lao từ những bước thật.",
+      "keywords": [
+        "khả năng kết hợp tầm nhìn lớn với hành động có cấu trúc"
+      ],
+      "suggestedAction": "Chia tầm nhìn dài hạn thành ba bước có thể đo lường và bắt đầu bước đầu tiên."
+    },
+    {
+      "index": "maturity",
+      "value": 33,
+      "baseValue": 6,
+      "title": "Người Dẫn Đường Bằng Yêu Thương",
+      "subtitle": "Phụng sự bắt đầu từ sự cân bằng",
+      "tagline": "Số trưởng thành 33 · Phụng sự bắt đầu từ sự cân bằng",
+      "summary": "Số trưởng thành 33 mang chủ đề lòng trắc ẩn, trách nhiệm hướng dẫn và mong muốn nâng đỡ. Khi kinh nghiệm sống dày lên, nét nổi bật là khả năng biến sự quan tâm thành sự hiện diện có sức nâng đỡ. Trong lăng kính hành trình chín chắn, đây không phải lời khẳng định bạn nhất định là ai, mà là một gợi ý để nhận ra điều đáng nuôi dưỡng. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi.",
+      "essence": "Người Dẫn Đường Bằng Yêu Thương là hình ảnh biểu tượng của lòng trắc ẩn, trách nhiệm hướng dẫn và mong muốn nâng đỡ. Chỉ số kết hợp số chủ đạo và sứ mệnh được đọc như một chủ đề trưởng thành: các năng lực và mong muốn có thể dần tìm được điểm gặp nhau. Không phải đến một độ tuổi nhất định bạn mới sở hữu phẩm chất đó. Khi kinh nghiệm sống dày lên, bạn có thể thử nhìn lại những lần mình biến sự quan tâm thành sự hiện diện có sức nâng đỡ. Dù điều đó có quen thuộc hay không, bạn vẫn có quyền chọn cách phát triển phù hợp với trải nghiệm thực tế. Sự chín chắn đến từ khả năng kết hợp mặt mạnh với phần còn cần học hỏi. Điều thú vị ở chủ đề này không nằm ở việc tìm một nhãn dán để tự định nghĩa; nó nằm ở chỗ bạn nhận ra khi nào phẩm chất ấy nâng đỡ mình và khi nào cần một cách tiếp cận khác.",
+      "strengths": [
+        {
+          "title": "Chăm sóc đầy thấu hiểu",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'chăm sóc đầy thấu hiểu' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Khuyến khích tiềm năng người khác",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'khuyến khích tiềm năng người khác' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        },
+        {
+          "title": "Lan tỏa tinh thần trách nhiệm",
+          "description": "Hãy quan sát cách bạn có thể vận dụng 'lan tỏa tinh thần trách nhiệm' trong hành trình chín chắn; chú ý tình huống cụ thể thay vì tự gắn nhãn vĩnh viễn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Dễ nhận phần trách nhiệm vượt quá khả năng",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        },
+        {
+          "title": "Có thể cảm thấy có lỗi khi ưu tiên bản thân",
+          "description": "Đây là một khả năng để tự quan sát, không phải điểm yếu được định sẵn. Khi nhận ra dấu hiệu này, hãy thử dừng lại và cân nhắc lựa chọn khác."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, chủ đề số 33 nhắc bạn về việc đồng hành mà không biến mình thành người gánh vác mọi đáp án. Với số trưởng thành, điều đáng suy ngẫm là sự khác biệt giữa điều bạn mong đợi và điều bạn thực sự chia sẻ. Một cuộc đối thoại rõ ràng thường mang lại nhiều hiểu biết hơn việc suy đoán cảm xúc của nhau.",
+      "careerAndGrowth": "Về công việc và phát triển, bạn có thể tìm nguồn cảm hứng từ giáo dục, hướng dẫn, phát triển cộng đồng và những công việc cần sự chăm sóc có hệ thống. Tuy vậy, không có con số nào quyết định nghề nghiệp hay bảo đảm thành tựu. Trong phạm vi hành trình chín chắn, hãy ưu tiên kỹ năng có thể luyện tập và kết quả bạn có thể kiểm chứng.",
+      "lifeLesson": "Bạn không cần hy sinh chính mình để tạo giá trị cho người khác. Nhìn lại một điều từng khiến bạn mất cân bằng; hiện tại bạn sẽ ứng xử khác ra sao? Một gợi ý thực hành: Giúp đỡ một người bằng việc lắng nghe và khuyến khích họ tự lựa chọn. Đây là lời mời trải nghiệm chứ không phải dự báo về điều sẽ xảy ra.",
+      "reflection": "Nếu bạn dành cho mình sự dịu dàng như dành cho người thân, điều gì sẽ thay đổi?",
+      "affirmation": "Tôi giúp người khác lớn lên và cho phép chính mình được chăm sóc.",
+      "keywords": [
+        "lòng trắc ẩn",
+        "trách nhiệm hướng dẫn và mong muốn nâng đỡ"
+      ],
+      "suggestedAction": "Giúp đỡ một người bằng việc lắng nghe và khuyến khích họ tự lựa chọn."
+    }
+  ]
+}

@@ -1,0 +1,1713 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Numerology V1 API",
+    "version": "1.0.0",
+    "description": "Stateless Flutter backend. No authentication, database or profile storage. Vietnamese draft content version v1.0.0-draft; calculation version v1. Framework/platform errors outside implemented handlers may not use JSON envelopes. Native method restrictions return framework 405; WAF-generated 429 bodies are platform-controlled. The shared application error formatter supports RATE_LIMIT_EXCEEDED/Retry-After, but no application rate limiter is deployed. Known local framework exception: raw TRACE returns generic non-JSON 500 before route handlers; tracked for upstream/edge remediation."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Service liveness",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Framework-generated unsupported method response; body may be empty or non-JSON. GET routes automatically support HEAD; routes automatically provide OPTIONS.",
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/config": {
+      "get": {
+        "operationId": "getConfig",
+        "summary": "Public Flutter configuration",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfigResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Framework-generated unsupported method response; body may be empty or non-JSON. GET routes automatically support HEAD; routes automatically provide OPTIONS.",
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numerology/calculate": {
+      "post": {
+        "operationId": "calculateNumerology",
+        "summary": "Calculate all nine indices with complete short summaries",
+        "description": "Stateless. No shared caching. Missing referenceDate resolves to current UTC calendar date. Same normalized input and explicit date produce deterministic numerical results; content is separately versioned. Entire response fails if any required interpretation is absent. JSON body limited to 4,096 UTF-8 bytes by default (private deployment override: 2,048–16,384). Query fields are rejected. Body reads have a 5-second deadline; incomplete or excessively fragmented streams return 400 INVALID_JSON.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CalculateRequest"
+              },
+              "example": {
+                "fullName": "Nguyễn Văn An",
+                "birthDate": "1990-05-20",
+                "referenceDate": "2026-11-08",
+                "locale": "vi"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "INVALID_JSON or VALIDATION_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "PAYLOAD_TOO_LARGE",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "UNSUPPORTED_MEDIA_TYPE",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "CALCULATION_RULE_UNSPECIFIED: vowel or consonant total is zero",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERPRETATION_CONTENT_MISSING or INTERNAL_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Framework-generated unsupported method response; body may be empty or non-JSON. GET routes automatically support HEAD; routes automatically provide OPTIONS.",
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numerology/definitions": {
+      "get": {
+        "operationId": "getDefinitions",
+        "summary": "Metadata for all nine index types and actual coverage",
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "vi"
+              ],
+              "default": "vi"
+            },
+            "description": "Only vi. Repeated parameters and unknown query keys are rejected on content endpoints."
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Weak SHA-256 validator for the complete public representation."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DefinitionsResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged. Empty body; reuse cached JSON.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Weak SHA-256 validator for the complete public representation."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Framework-generated unsupported method response; body may be empty or non-JSON. GET routes automatically support HEAD; routes automatically provide OPTIONS.",
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          }
+        },
+        "description": " Query string length is limited to 256 characters."
+      }
+    },
+    "/api/v1/numerology/interpretations/{type}/{value}": {
+      "get": {
+        "operationId": "getInterpretation",
+        "summary": "Complete unmodified imported article",
+        "description": "Path type corresponds to the stable camelCase index ID. Internal route parameter is named index. Missing entries are not replaced with base-value content. Query string length is limited to 256 characters.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/IndexType"
+            }
+          },
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(?:[1-9]|11|22|33)$"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "vi"
+              ],
+              "default": "vi"
+            },
+            "description": "Only vi. Repeated parameters and unknown query keys are rejected on content endpoints."
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Weak SHA-256 validator for the complete public representation."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullContentResponse"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged. Empty body; reuse cached JSON.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Weak SHA-256 validator for the complete public representation."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "VALIDATION_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "INTERPRETATION_NOT_FOUND",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL_ERROR",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "no-store for Calculate, config, health and errors; public, max-age=0, must-revalidate for public content."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Framework-generated unsupported method response; body may be empty or non-JSON. GET routes automatically support HEAD; routes automatically provide OPTIONS.",
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "const": "nosniff"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "const": "no-referrer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IndexType": {
+        "type": "string",
+        "enum": [
+          "lifePath",
+          "soulUrge",
+          "personality",
+          "expression",
+          "birthday",
+          "attitude",
+          "maturity",
+          "personalYear",
+          "personalMonth"
+        ]
+      },
+      "Step": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "operation",
+          "inputs",
+          "result"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "sum",
+              "digitSum"
+            ]
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "result": {
+            "type": "integer"
+          }
+        }
+      },
+      "Index": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "value",
+          "baseValue",
+          "steps"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/IndexType"
+          },
+          "value": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              11,
+              22,
+              33
+            ]
+          },
+          "baseValue": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Step"
+            }
+          },
+          "referenceDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Real Gregorian date, years 0001–9999; timestamps rejected."
+          }
+        }
+      },
+      "Name": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "normalizedName",
+          "nameTotal",
+          "vowelTotal",
+          "consonantTotal",
+          "letters"
+        ],
+        "properties": {
+          "normalizedName": {
+            "type": "string"
+          },
+          "nameTotal": {
+            "type": "integer"
+          },
+          "vowelTotal": {
+            "type": "integer"
+          },
+          "consonantTotal": {
+            "type": "integer"
+          },
+          "letters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "letter",
+                "value",
+                "group"
+              ],
+              "properties": {
+                "letter": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9
+                },
+                "group": {
+                  "type": "string",
+                  "enum": [
+                    "vowel",
+                    "consonant"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "Summary": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "value",
+          "baseValue",
+          "title",
+          "subtitle",
+          "tagline",
+          "summary",
+          "keywords"
+        ],
+        "properties": {
+          "index": {
+            "$ref": "#/components/schemas/IndexType"
+          },
+          "value": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              11,
+              22,
+              33
+            ]
+          },
+          "baseValue": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Interpretation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "value",
+          "baseValue",
+          "title",
+          "subtitle",
+          "tagline",
+          "summary",
+          "keywords",
+          "essence",
+          "relationships",
+          "careerAndGrowth",
+          "lifeLesson",
+          "reflection",
+          "affirmation",
+          "suggestedAction",
+          "strengths",
+          "challenges"
+        ],
+        "properties": {
+          "index": {
+            "$ref": "#/components/schemas/IndexType"
+          },
+          "value": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              11,
+              22,
+              33
+            ]
+          },
+          "baseValue": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "essence": {
+            "type": "string"
+          },
+          "relationships": {
+            "type": "string"
+          },
+          "careerAndGrowth": {
+            "type": "string"
+          },
+          "lifeLesson": {
+            "type": "string"
+          },
+          "reflection": {
+            "type": "string"
+          },
+          "affirmation": {
+            "type": "string"
+          },
+          "suggestedAction": {
+            "type": "string"
+          },
+          "periodFocus": {
+            "type": "string"
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "description"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "challenges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "description"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "CalculateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fullName",
+          "birthDate"
+        ],
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Trimmed first; must normalize to at least one A–Z letter."
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Real Gregorian date, years 0001–9999; timestamps rejected."
+          },
+          "referenceDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Real Gregorian date, years 0001–9999; timestamps rejected."
+          },
+          "targetDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Compatibility alias. Must equal referenceDate if both are supplied.",
+            "deprecated": true
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "vi"
+            ],
+            "default": "vi"
+          }
+        }
+      },
+      "CalculateData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "calculationVersion",
+          "contentVersion",
+          "locale",
+          "referenceDate",
+          "name",
+          "indices",
+          "interpretations"
+        ],
+        "properties": {
+          "calculationVersion": {
+            "const": "v1"
+          },
+          "contentVersion": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "vi"
+            ],
+            "default": "vi"
+          },
+          "referenceDate": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Real Gregorian date, years 0001–9999; timestamps rejected."
+          },
+          "name": {
+            "$ref": "#/components/schemas/Name"
+          },
+          "indices": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lifePath",
+              "soulUrge",
+              "personality",
+              "expression",
+              "birthday",
+              "attitude",
+              "maturity",
+              "personalYear",
+              "personalMonth"
+            ],
+            "properties": {
+              "lifePath": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "soulUrge": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "personality": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "expression": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "birthday": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "attitude": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "maturity": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "personalYear": {
+                "$ref": "#/components/schemas/Index"
+              },
+              "personalMonth": {
+                "$ref": "#/components/schemas/Index"
+              }
+            }
+          },
+          "interpretations": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lifePath",
+              "soulUrge",
+              "personality",
+              "expression",
+              "birthday",
+              "attitude",
+              "maturity",
+              "personalYear",
+              "personalMonth"
+            ],
+            "properties": {
+              "lifePath": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "soulUrge": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "personality": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "expression": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "birthday": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "attitude": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "maturity": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "personalYear": {
+                "$ref": "#/components/schemas/Summary"
+              },
+              "personalMonth": {
+                "$ref": "#/components/schemas/Summary"
+              }
+            }
+          }
+        }
+      },
+      "Definition": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "title",
+          "englishTitle",
+          "description",
+          "source",
+          "displayOrder",
+          "supportsMasterNumbers",
+          "availableValues",
+          "supportedValues"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/IndexType"
+          },
+          "title": {
+            "type": "string"
+          },
+          "englishTitle": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "displayOrder": {
+            "type": "integer"
+          },
+          "supportsMasterNumbers": {
+            "type": "boolean"
+          },
+          "availableValues": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                22,
+                33
+              ]
+            }
+          },
+          "supportedValues": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                11,
+                22,
+                33
+              ]
+            }
+          }
+        }
+      },
+      "DefinitionsData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "calculationVersion",
+          "locale",
+          "contentVersion",
+          "status",
+          "plannedIndices",
+          "definitions",
+          "missingContent"
+        ],
+        "properties": {
+          "calculationVersion": {
+            "const": "v1"
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "vi"
+            ],
+            "default": "vi"
+          },
+          "contentVersion": {
+            "type": "string"
+          },
+          "status": {
+            "const": "draft"
+          },
+          "plannedIndices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IndexType"
+            }
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Definition"
+            }
+          },
+          "missingContent": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "index",
+                "values"
+              ],
+              "properties": {
+                "index": {
+                  "$ref": "#/components/schemas/IndexType"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8,
+                      9,
+                      11,
+                      22,
+                      33
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "FullContentData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "calculationVersion",
+          "locale",
+          "contentVersion",
+          "interpretation"
+        ],
+        "properties": {
+          "calculationVersion": {
+            "const": "v1"
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "vi"
+            ],
+            "default": "vi"
+          },
+          "contentVersion": {
+            "type": "string"
+          },
+          "interpretation": {
+            "$ref": "#/components/schemas/Interpretation"
+          }
+        }
+      },
+      "ConfigData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "apiVersion",
+          "calculationVersion",
+          "defaultLocale",
+          "supportedLocales",
+          "maxRequestBytes",
+          "calculationAvailable",
+          "features"
+        ],
+        "properties": {
+          "apiVersion": {
+            "const": "v1"
+          },
+          "calculationVersion": {
+            "const": "v1"
+          },
+          "defaultLocale": {
+            "type": "string",
+            "enum": [
+              "vi"
+            ],
+            "default": "vi"
+          },
+          "supportedLocales": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "vi"
+              ],
+              "default": "vi"
+            }
+          },
+          "maxRequestBytes": {
+            "type": "integer",
+            "minimum": 2048,
+            "maximum": 16384,
+            "default": 4096,
+            "description": "Configured body-byte limit; default 4096."
+          },
+          "calculationAvailable": {
+            "const": true
+          },
+          "features": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "calculations",
+              "interpretationSummaries",
+              "fullInterpretations",
+              "definitions"
+            ],
+            "properties": {
+              "calculations": {
+                "const": true
+              },
+              "interpretationSummaries": {
+                "const": true
+              },
+              "fullInterpretations": {
+                "const": true
+              },
+              "definitions": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "HealthData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "apiVersion"
+        ],
+        "properties": {
+          "status": {
+            "const": "ok"
+          },
+          "apiVersion": {
+            "const": "v1"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "error"
+        ],
+        "properties": {
+          "success": {
+            "const": false
+          },
+          "error": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "message",
+              "details"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "enum": [
+                  "VALIDATION_ERROR",
+                  "INVALID_JSON",
+                  "PAYLOAD_TOO_LARGE",
+                  "UNSUPPORTED_MEDIA_TYPE",
+                  "CALCULATION_RULE_UNSPECIFIED",
+                  "INTERPRETATION_NOT_FOUND",
+                  "INTERPRETATION_CONTENT_MISSING",
+                  "INTERNAL_ERROR",
+                  "RATE_LIMIT_EXCEEDED"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "details": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "field",
+                    "code"
+                  ],
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "CalculateResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ],
+        "properties": {
+          "success": {
+            "const": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/CalculateData"
+          }
+        }
+      },
+      "DefinitionsResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ],
+        "properties": {
+          "success": {
+            "const": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/DefinitionsData"
+          }
+        }
+      },
+      "FullContentResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ],
+        "properties": {
+          "success": {
+            "const": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/FullContentData"
+          }
+        }
+      },
+      "ConfigResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ],
+        "properties": {
+          "success": {
+            "const": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/ConfigData"
+          }
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ],
+        "properties": {
+          "success": {
+            "const": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthData"
+          }
+        }
+      }
+    },
+    "responses": {
+      "PlatformRateLimited": {
+        "description": "Possible Vercel WAF 429 after manual enforcement setup. Body/headers are provider-controlled and need not match Error. No limiter is active merely because this response is documented.",
+        "headers": {
+          "Retry-After": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional; seconds or HTTP date. Flutter must handle absence."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "transport": "actual HTTP against next start from the Webpack production build",
+  "baseUrl": "http://127.0.0.1:3105",
+  "passed": 30,
+  "failed": 0,
+  "results": [
+    {
+      "name": "GET /health: 200 and OpenAPI schema",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /config: 200 and OpenAPI schema",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /numerology/definitions?locale=vi: 200 and OpenAPI schema",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate fixture A: all nine constants, complete steps, versions and no-store",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate repeated requests are identical",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate omitted referenceDate uses UTC calendar date",
+      "status": "PASS"
+    },
+    {
+      "name": "Full lifePath/8: exact source article and schema",
+      "status": "PASS"
+    },
+    {
+      "name": "Full personality/11: exact source article and schema",
+      "status": "PASS"
+    },
+    {
+      "name": "Full personalYear/8: exact source article and schema",
+      "status": "PASS"
+    },
+    {
+      "name": "Full personalMonth/1: exact source article and schema",
+      "status": "PASS"
+    },
+    {
+      "name": "ETag 304 /numerology/definitions?locale=vi",
+      "status": "PASS"
+    },
+    {
+      "name": "ETag 304 /numerology/interpretations/personality/11?locale=vi",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/interpretations/invalid/8: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/interpretations/lifePath/10: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/interpretations/lifePath/8?locale=en: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/interpretations/birthday/11: 404 INTERPRETATION_NOT_FOUND",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/interpretations/birthday/22: 404 INTERPRETATION_NOT_FOUND",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/definitions?locale=en: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Error /numerology/definitions?locale=vi&locale=vi: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate invalid birth: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate invalid reference: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate unknown locale: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate unknown field: 400 VALIDATION_ERROR",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate Birthday 11: 500 INTERPRETATION_CONTENT_MISSING",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate Birthday 22: 500 INTERPRETATION_CONTENT_MISSING",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate day 29: 500 INTERPRETATION_CONTENT_MISSING",
+      "status": "PASS"
+    },
+    {
+      "name": "Calculate zero vowel group: 422 CALCULATION_RULE_UNSPECIFIED",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "oversized body",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong media type",
+      "status": "PASS"
+    }
+  ]
+}

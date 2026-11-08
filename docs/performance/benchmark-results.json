@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-11-08T02:14:50.970Z",
+  "environment": {
+    "node": "v22.23.4",
+    "next": "16.4.5",
+    "platform": "darwin",
+    "release": "24.6.0",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz",
+    "cpuCount": 8,
+    "totalMemoryBytes": 8589934592
+  },
+  "settings": {
+    "base": "http://127.0.0.1:3105",
+    "count": 60,
+    "concurrency": 2,
+    "warmups": 5
+  },
+  "method": "Production next start; localhost; keep-alive; identity encoding; warmups excluded; latency includes reading the complete response body; no conditional cache requests",
+  "memory": {
+    "scope": "Benchmark client RSS/heap and optional local Next server RSS snapshots, not Vercel memory",
+    "clientBefore": {
+      "rss": 33148928,
+      "heapTotal": 5877760,
+      "heapUsed": 5248152,
+      "external": 1952439,
+      "arrayBuffers": 15409
+    },
+    "clientAfter": {
+      "rss": 72720384,
+      "heapTotal": 21344256,
+      "heapUsed": 13992744,
+      "external": 3992899,
+      "arrayBuffers": 386166
+    },
+    "serverRssBefore": 80064512,
+    "serverRssAfter": 100368384
+  },
+  "results": [
+    {
+      "route": "GET /api/v1/health",
+      "requests": 60,
+      "errors": 0,
+      "serverErrors": 0,
+      "statusCounts": {
+        "200": 60
+      },
+      "averageMs": 3.714,
+      "p50Ms": 3.384,
+      "p95Ms": 7.017,
+      "p99Ms": 8.21,
+      "responseBytes": {
+        "min": 57,
+        "max": 57
+      }
+    },
+    {
+      "route": "POST /api/v1/numerology/calculate",
+      "requests": 60,
+      "errors": 0,
+      "serverErrors": 0,
+      "statusCounts": {
+        "200": 60
+      },
+      "averageMs": 3.941,
+      "p50Ms": 3.737,
+      "p95Ms": 5.163,
+      "p99Ms": 7.037,
+      "responseBytes": {
+        "min": 11469,
+        "max": 11469
+      }
+    },
+    {
+      "route": "GET /api/v1/numerology/interpretations/:type/:value",
+      "requests": 60,
+      "errors": 0,
+      "serverErrors": 0,
+      "statusCounts": {
+        "200": 60
+      },
+      "averageMs": 3.513,
+      "p50Ms": 3.426,
+      "p95Ms": 4.396,
+      "p99Ms": 6.54,
+      "responseBytes": {
+        "min": 5219,
+        "max": 5219
+      }
+    },
+    {
+      "route": "GET /api/v1/numerology/definitions",
+      "requests": 60,
+      "errors": 0,
+      "serverErrors": 0,
+      "statusCounts": {
+        "200": 60
+      },
+      "averageMs": 3.284,
+      "p50Ms": 3.114,
+      "p95Ms": 4.498,
+      "p99Ms": 6.588,
+      "responseBytes": {
+        "min": 3035,
+        "max": 3035
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "lifePath": [
+    {"label":"birthDay","operation":"digitSum","inputs":[2,0],"result":2},
+    {"label":"birthYear","operation":"digitSum","inputs":[1,9,9,0],"result":19},
+    {"label":"birthYear","operation":"digitSum","inputs":[1,9],"result":10},
+    {"label":"birthYear","operation":"digitSum","inputs":[1,0],"result":1},
+    {"label":"lifePath.sum","operation":"sum","inputs":[5,2,1],"result":8}
+  ],
+  "expression": [
+    {"label":"expression.sum","operation":"sum","inputs":[5,7,3,7,5,5,4,1,5,1,5],"result":48},
+    {"label":"expression","operation":"digitSum","inputs":[4,8],"result":12},
+    {"label":"expression","operation":"digitSum","inputs":[1,2],"result":3}
+  ],
+  "soulUrge": [
+    {"label":"soulUrge.sum","operation":"sum","inputs":[3,5,1,1],"result":10},
+    {"label":"soulUrge","operation":"digitSum","inputs":[1,0],"result":1}
+  ],
+  "personality": [
+    {"label":"personality.sum","operation":"sum","inputs":[5,7,7,5,4,5,5],"result":38},
+    {"label":"personality","operation":"digitSum","inputs":[3,8],"result":11},
+    {"label":"personality.base","operation":"digitSum","inputs":[1,1],"result":2}
+  ],
+  "birthday": [
+    {"label":"birthday.sum","operation":"sum","inputs":[20],"result":20},
+    {"label":"birthday","operation":"digitSum","inputs":[2,0],"result":2}
+  ],
+  "attitude": [
+    {"label":"attitude.sum","operation":"sum","inputs":[5,20],"result":25},
+    {"label":"attitude","operation":"digitSum","inputs":[2,5],"result":7}
+  ],
+  "maturity": [
+    {"label":"maturity.sum","operation":"sum","inputs":[8,3],"result":11},
+    {"label":"maturity.base","operation":"digitSum","inputs":[1,1],"result":2}
+  ],
+  "personalYear": [
+    {"label":"birthDay","operation":"digitSum","inputs":[2,0],"result":2},
+    {"label":"referenceYear","operation":"digitSum","inputs":[2,0,2,6],"result":10},
+    {"label":"referenceYear","operation":"digitSum","inputs":[1,0],"result":1},
+    {"label":"personalYear.sum","operation":"sum","inputs":[5,2,1],"result":8}
+  ],
+  "personalMonth": [
+    {"label":"personalMonth.sum","operation":"sum","inputs":[8,11],"result":19},
+    {"label":"personalMonth","operation":"digitSum","inputs":[1,9],"result":10},
+    {"label":"personalMonth","operation":"digitSum","inputs":[1,0],"result":1}
+  ]
+}
