@@ -1,0 +1,1586 @@
+{
+  "info": {
+    "_postman_id": "13d1604f-85da-4ad8-97c8-9b9274beaf0a",
+    "name": "Pilogy API V1",
+    "description": "Existing Pilogy stateless API. Uses only fixed documentation fixtures and no credentials. Select an environment with baseUrl ending in /api/v1. Includes all five routes, all nine interpretation types, core masters, and implemented 400/404/413/415/422/500 cases. No rate-limit stress tests or destructive requests. Known draft Birthday 11 coverage cases intentionally expect 404/500. WAF/SSO responses may be non-JSON; inspect failures before retrying.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api/v1",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "(function () {",
+          "const base = pm.variables.get(\"baseUrl\");",
+          "if (typeof base !== \"string\" || !/^https?:\\/\\/[^\\s@?#]+\\/api\\/v1$/.test(base)) {",
+          "  throw new Error(\"Set baseUrl to an HTTP(S) API origin ending in /api/v1, without a trailing slash or credentials.\");",
+          "}",
+          "})();"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "(function () {",
+          "let payload;",
+          "try { payload = pm.response.json(); } catch (_) { payload = undefined; }",
+          "pm.test(\"Response has JSON media type and valid JSON\", function () {",
+          "  pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.match(/^application\\/json(?:;|$)/i);",
+          "  pm.expect(payload).to.be.an(\"object\");",
+          "});",
+          "pm.test(\"Standard success/error envelope\", function () {",
+          "  pm.expect(payload).to.have.property(\"success\").that.is.a(\"boolean\");",
+          "  if (payload.success) {",
+          "    pm.expect(payload).to.have.property(\"data\").that.is.an(\"object\");",
+          "    pm.expect(payload).not.to.have.property(\"error\");",
+          "  } else {",
+          "    pm.expect(payload).not.to.have.property(\"data\");",
+          "    pm.expect(payload.error).to.include.all.keys(\"code\", \"message\", \"details\");",
+          "    pm.expect(payload.error.code).to.be.a(\"string\").and.not.empty;",
+          "    pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+          "    pm.expect(payload.error.details).to.be.an(\"array\");",
+          "    payload.error.details.forEach(function (detail) {",
+          "      pm.expect(detail).to.have.all.keys(\"field\", \"code\");",
+          "      pm.expect(detail.field).to.be.a(\"string\");",
+          "      pm.expect(detail.code).to.be.a(\"string\");",
+          "    });",
+          "  }",
+          "});",
+          "pm.test(\"API security headers\", function () {",
+          "  pm.expect(pm.response.headers.get(\"X-Content-Type-Options\")).to.equal(\"nosniff\");",
+          "  pm.expect(pm.response.headers.get(\"Referrer-Policy\")).to.equal(\"no-referrer\");",
+          "});",
+          "pm.test(\"Correct personalized/error or public-content cache policy\", function () {",
+          "  const publicContent = pm.response.code === 200 && /\\/numerology\\/(definitions|interpretations)(?:\\/|\\?|$)/.test(pm.request.url.toString());",
+          "  pm.expect(pm.response.headers.get(\"Cache-Control\")).to.equal(publicContent ? \"public, max-age=0, must-revalidate\" : \"no-store\");",
+          "  if (publicContent) pm.expect(pm.response.headers.get(\"ETag\")).to.be.a(\"string\").and.not.empty;",
+          "});",
+          "})();"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/health",
+            "description": "Unauthenticated liveness check; no request body or query fields."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Health response fields\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"status\", \"apiVersion\");",
+                  "});",
+                  "pm.test(\"Backend reports healthy V1 service\", function () {",
+                  "  pm.expect(data.status).to.equal(\"ok\"); pm.expect(data.apiVersion).to.equal(\"v1\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Config",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/config",
+            "description": "Public capability flags and effective request-byte limit. No credentials required."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Public client configuration fields\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"apiVersion\", \"calculationVersion\", \"defaultLocale\", \"supportedLocales\", \"features\", \"maxRequestBytes\", \"calculationAvailable\");",
+                  "  pm.expect(data.apiVersion).to.equal(\"v1\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\");",
+                  "  pm.expect(data.maxRequestBytes).to.be.a(\"number\").and.within(2048, 16384);",
+                  "});",
+                  "pm.test(\"Vietnamese locale is available and is the default\", function () {",
+                  "  pm.expect(data.defaultLocale).to.equal(\"vi\"); pm.expect(data.supportedLocales).to.include(\"vi\");",
+                  "});",
+                  "pm.test(\"Advertised implemented capabilities\", function () {",
+                  "  [\"calculations\", \"interpretationSummaries\", \"fullInterpretations\", \"definitions\"].forEach(function (feature) {",
+                  "    pm.expect(data.features[feature]).to.equal(true);",
+                  "  });",
+                  "  pm.expect(data.calculationAvailable).to.equal(true);",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Numerology",
+      "item": [
+        {
+          "name": "Calculate Numerology",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Fixed approved synthetic/documentation fixture. All nine results and summaries are checked; no article text is logged or persisted by scripts.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Complete Calculate response fields\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"referenceDate\", \"locale\", \"name\", \"indices\", \"interpretations\");",
+                  "});",
+                  "pm.test(\"Independent name fixture totals and normalization\", function () {",
+                  "  pm.expect(data.name.normalizedName).to.equal(\"NGUYEN VAN AN\");",
+                  "  pm.expect(data.name.nameTotal).to.equal(48); pm.expect(data.name.vowelTotal).to.equal(10); pm.expect(data.name.consonantTotal).to.equal(38);",
+                  "});",
+                  "pm.test(\"Calculation/content versions and effective reference date\", function () {",
+                  "  const input = JSON.parse(pm.request.body.raw);",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\");",
+                  "  pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(data.referenceDate).to.equal(input.referenceDate); pm.expect(data.locale).to.equal(input.locale);",
+                  "});",
+                  "const expected = {\"lifePath\": 8, \"expression\": 3, \"soulUrge\": 1, \"personality\": 11, \"birthday\": 2, \"attitude\": 7, \"maturity\": 11, \"personalYear\": 8, \"personalMonth\": 1};",
+                  "const types = Object.keys(expected);",
+                  "pm.test(\"Exactly all nine indices and summaries\", function () {",
+                  "  pm.expect(Object.keys(data.indices || {})).to.have.members(types);",
+                  "  pm.expect(Object.keys(data.interpretations || {})).to.have.members(types);",
+                  "});",
+                  "types.forEach(function (type) {",
+                  "  pm.test(\"Index \" + type + \" matches independent fixture and arithmetic steps\", function () {",
+                  "    const index = data.indices[type];",
+                  "    pm.expect(index).to.include.all.keys(\"type\", \"value\", \"baseValue\", \"steps\");",
+                  "    pm.expect(index.type).to.equal(type); pm.expect(index.value).to.equal(expected[type]);",
+                  "    const base = {11: 2, 22: 4, 33: 6}[expected[type]] || expected[type];",
+                  "    pm.expect(index.baseValue).to.equal(base); pm.expect(index.steps).to.be.an(\"array\").and.not.empty;",
+                  "    index.steps.forEach(function (step) {",
+                  "      pm.expect(step).to.include.all.keys(\"label\", \"operation\", \"inputs\", \"result\");",
+                  "      pm.expect(step.label).to.be.a(\"string\").and.not.empty;",
+                  "      pm.expect([\"sum\", \"digitSum\"]).to.include(step.operation);",
+                  "      pm.expect(step.inputs).to.be.an(\"array\").and.not.empty;",
+                  "      pm.expect(step.inputs.every(Number.isInteger)).to.equal(true);",
+                  "      pm.expect(step.result).to.equal(step.inputs.reduce(function (total, value) { return total + value; }, 0));",
+                  "    });",
+                  "    const normal = index.steps.filter(function (step) { return step.label === type || step.label === type + \".sum\"; });",
+                  "    pm.expect(normal[normal.length - 1].result).to.equal(index.value);",
+                  "    pm.expect(index.steps[index.steps.length - 1].result).to.equal(index.baseValue);",
+                  "    if (type === \"personalYear\" || type === \"personalMonth\") pm.expect(index.referenceDate).to.equal(data.referenceDate);",
+                  "  });",
+                  "  pm.test(\"Summary \" + type + \" matches calculated value without full article\", function () {",
+                  "    const summary = data.interpretations[type];",
+                  "    pm.expect(summary).to.include.all.keys(\"index\", \"value\", \"baseValue\", \"title\", \"subtitle\", \"tagline\", \"summary\", \"keywords\");",
+                  "    pm.expect(summary.index).to.equal(type); pm.expect(summary.value).to.equal(data.indices[type].value); pm.expect(summary.baseValue).to.equal(data.indices[type].baseValue);",
+                  "    [\"title\", \"subtitle\", \"tagline\", \"summary\"].forEach(function (field) { pm.expect(summary[field]).to.be.a(\"string\").and.not.empty; });",
+                  "    [\"essence\", \"strengths\", \"challenges\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\", \"periodFocus\"].forEach(function (field) { pm.expect(summary).not.to.have.property(field); });",
+                  "  });",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Numerology Definitions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/definitions?locale=vi",
+            "description": "One metadata record per index type; availableValues describes supplied articles and supportedValues describes engine output domains."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Definitions version and metadata fields\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"status\", \"plannedIndices\", \"definitions\", \"missingContent\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"All nine definitions and supported content domains\", function () {",
+                  "  const expected = [\"lifePath\", \"expression\", \"soulUrge\", \"personality\", \"birthday\", \"attitude\", \"maturity\", \"personalYear\", \"personalMonth\"];",
+                  "  pm.expect(data.definitions).to.be.an(\"array\").with.lengthOf(9);",
+                  "  pm.expect(data.definitions.map(function (item) { return item.type; })).to.have.members(expected);",
+                  "  data.definitions.forEach(function (item, position) {",
+                  "    pm.expect(item).to.include.all.keys(\"type\", \"title\", \"englishTitle\", \"description\", \"source\", \"displayOrder\", \"supportsMasterNumbers\", \"availableValues\", \"supportedValues\");",
+                  "    [\"title\", \"englishTitle\", \"description\", \"source\"].forEach(function (field) { pm.expect(item[field]).to.be.a(\"string\").and.not.empty; });",
+                  "    pm.expect(item.displayOrder).to.equal(position + 1); pm.expect(item.supportsMasterNumbers).to.be.a(\"boolean\");",
+                  "    pm.expect(item.availableValues).to.be.an(\"array\").and.not.empty;",
+                  "    pm.expect(item.supportedValues).to.be.an(\"array\").and.not.empty;",
+                  "    item.availableValues.forEach(function (value) { pm.expect(item.supportedValues).to.include(value); });",
+                  "  });",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Interpretations",
+      "item": [
+        {
+          "name": "Life Path 8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/lifePath/8?locale=vi",
+            "description": "Full dedicated lifePath/8 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"lifePath\"); pm.expect(data.interpretation.value).to.equal(8); pm.expect(data.interpretation.baseValue).to.equal(8);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Personality 11",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/personality/11?locale=vi",
+            "description": "Full dedicated personality/11 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"personality\"); pm.expect(data.interpretation.value).to.equal(11); pm.expect(data.interpretation.baseValue).to.equal(2);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Personal Year 8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/personalYear/8?locale=vi",
+            "description": "Full dedicated personalYear/8 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"personalYear\"); pm.expect(data.interpretation.value).to.equal(8); pm.expect(data.interpretation.baseValue).to.equal(8);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Personal Month 1",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/personalMonth/1?locale=vi",
+            "description": "Full dedicated personalMonth/1 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"personalMonth\"); pm.expect(data.interpretation.value).to.equal(1); pm.expect(data.interpretation.baseValue).to.equal(1);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Expression 3",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/expression/3?locale=vi",
+            "description": "Full dedicated expression/3 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"expression\"); pm.expect(data.interpretation.value).to.equal(3); pm.expect(data.interpretation.baseValue).to.equal(3);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Soul Urge 1",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/soulUrge/1?locale=vi",
+            "description": "Full dedicated soulUrge/1 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"soulUrge\"); pm.expect(data.interpretation.value).to.equal(1); pm.expect(data.interpretation.baseValue).to.equal(1);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Birthday 2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/birthday/2?locale=vi",
+            "description": "Full dedicated birthday/2 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"birthday\"); pm.expect(data.interpretation.value).to.equal(2); pm.expect(data.interpretation.baseValue).to.equal(2);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Attitude 7",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/attitude/7?locale=vi",
+            "description": "Full dedicated attitude/7 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"attitude\"); pm.expect(data.interpretation.value).to.equal(7); pm.expect(data.interpretation.baseValue).to.equal(7);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Maturity 11",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/maturity/11?locale=vi",
+            "description": "Full dedicated maturity/11 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"maturity\"); pm.expect(data.interpretation.value).to.equal(11); pm.expect(data.interpretation.baseValue).to.equal(2);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Life Path 22",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/lifePath/22?locale=vi",
+            "description": "Full dedicated lifePath/22 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"lifePath\"); pm.expect(data.interpretation.value).to.equal(22); pm.expect(data.interpretation.baseValue).to.equal(4);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Life Path 33",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/lifePath/33?locale=vi",
+            "description": "Full dedicated lifePath/33 article; preserves Master Number identity and validates structure rather than Vietnamese wording."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "const data = payload.data || {};",
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"success is true\", function () { pm.expect(payload.success).to.equal(true); });",
+                  "",
+                  "pm.test(\"Full content versions and locale\", function () {",
+                  "  pm.expect(data).to.include.all.keys(\"calculationVersion\", \"contentVersion\", \"locale\", \"interpretation\");",
+                  "  pm.expect(data.calculationVersion).to.equal(\"v1\"); pm.expect(data.contentVersion).to.be.a(\"string\").and.not.empty; pm.expect(data.locale).to.equal(\"vi\");",
+                  "});",
+                  "pm.test(\"Dedicated article identity and master base value\", function () {",
+                  "  pm.expect(data.interpretation.index).to.equal(\"lifePath\"); pm.expect(data.interpretation.value).to.equal(33); pm.expect(data.interpretation.baseValue).to.equal(6);",
+                  "});",
+                  "pm.test(\"Complete structured article without brittle text comparisons\", function () {",
+                  "  const article = data.interpretation;",
+                  "  const paragraphs = [\"title\", \"subtitle\", \"tagline\", \"summary\", \"essence\", \"relationships\", \"careerAndGrowth\", \"lifeLesson\", \"reflection\", \"affirmation\", \"suggestedAction\"];",
+                  "  pm.expect(article).to.include.all.keys(paragraphs.concat([\"index\", \"value\", \"baseValue\", \"strengths\", \"challenges\", \"keywords\"]));",
+                  "  paragraphs.forEach(function (field) { pm.expect(article[field]).to.be.a(\"string\").and.not.empty; });",
+                  "  [\"strengths\", \"challenges\"].forEach(function (field) {",
+                  "    pm.expect(article[field]).to.be.an(\"array\").and.not.empty;",
+                  "    article[field].forEach(function (point) { pm.expect(point.title).to.be.a(\"string\").and.not.empty; pm.expect(point.description).to.be.a(\"string\").and.not.empty; });",
+                  "  });",
+                  "  pm.expect(article.keywords).to.be.an(\"array\").and.not.empty;",
+                  "  article.keywords.forEach(function (word) { pm.expect(word).to.be.a(\"string\").and.not.empty; });",
+                  "  if (article.index === \"personalYear\" || article.index === \"personalMonth\") pm.expect(article.periodFocus).to.be.a(\"string\").and.not.empty;",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative Tests",
+      "item": [
+        {
+          "name": "Missing fullName",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Invalid birthDate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1900-02-29\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Invalid referenceDate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-02-29\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Unknown fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\",\n  \"unexpectedField\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Unsupported locale",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Invalid interpretation type",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/unknown/8?locale=vi",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Invalid interpretation value",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/lifePath/10?locale=vi",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Unsupported interpretation locale",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/lifePath/8?locale=en",
+            "description": "Expected HTTP 400 with VALIDATION_ERROR; this is an intentional negative test."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code VALIDATION_ERROR\", function () { pm.expect(payload.error.code).to.equal(\"VALIDATION_ERROR\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Missing Birthday 11 article",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/interpretations/birthday/11?locale=vi",
+            "description": "Known draft-content gap: Birthday 11 is reachable but no article is imported. Expected 404 now; review this request if approved content is added."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code INTERPRETATION_NOT_FOUND\", function () { pm.expect(payload.error.code).to.equal(\"INTERPRETATION_NOT_FOUND\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Unspecified zero-vowel calculation rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Lynn has no A/E/I/O/U vowels under V1. The documented zero-group convention is unspecified, so the API returns 422, not 400.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Lynn\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 422\", function () { pm.response.to.have.status(422); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code CALCULATION_RULE_UNSPECIFIED\", function () { pm.expect(payload.error.code).to.equal(\"CALCULATION_RULE_UNSPECIFIED\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Missing required Birthday summary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Known draft-content gap: required Birthday 11 summary is missing. Expected 500 with no partial Calculate data. Review after approved editorial coverage changes.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1998-02-11\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 500\", function () { pm.response.to.have.status(500); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code INTERPRETATION_CONTENT_MISSING\", function () { pm.expect(payload.error.code).to.equal(\"INTERPRETATION_CONTENT_MISSING\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Unsupported Content-Type",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "text/plain",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 415 with UNSUPPORTED_MEDIA_TYPE; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn An\",\n  \"birthDate\": \"1990-05-20\",\n  \"referenceDate\": \"2026-11-08\",\n  \"locale\": \"vi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 415\", function () { pm.response.to.have.status(415); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code UNSUPPORTED_MEDIA_TYPE\", function () { pm.expect(payload.error.code).to.equal(\"UNSUPPORTED_MEDIA_TYPE\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Malformed JSON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "Expected HTTP 400 with INVALID_JSON; this is an intentional negative test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"fullName\":",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 400\", function () { pm.response.to.have.status(400); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code INVALID_JSON\", function () { pm.expect(payload.error.code).to.equal(\"INVALID_JSON\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Oversized JSON body",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/numerology/calculate",
+            "description": "One 16,385-byte body, including valid JSON plus whitespace, exceeds every permitted 2–16 KiB configuration. This single boundary check is not a load test.",
+            "body": {
+              "mode": "raw",
+              "raw": "{}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "(function () {",
+                  "let payload;",
+                  "try { payload = pm.response.json(); } catch (_) { payload = {}; }",
+                  "pm.test(\"Documented HTTP 413\", function () { pm.response.to.have.status(413); });",
+                  "pm.test(\"success is false\", function () { pm.expect(payload.success).to.equal(false); });",
+                  "pm.test(\"Stable error code PAYLOAD_TOO_LARGE\", function () { pm.expect(payload.error.code).to.equal(\"PAYLOAD_TOO_LARGE\"); });",
+                  "pm.test(\"Error details are structured and no partial data is returned\", function () {",
+                  "  pm.expect(payload.error.message).to.be.a(\"string\").and.not.empty;",
+                  "  pm.expect(payload.error.details).to.be.an(\"array\"); pm.expect(payload).not.to.have.property(\"data\");",
+                  "});",
+                  "})();"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}
