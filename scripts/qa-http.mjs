@@ -18,9 +18,10 @@ const post = (data) => fetch(`${base}/api/v1/numerology/calculate`,{method:"POST
 for (const [path,name] of [["/health","HealthResponse"],["/config","ConfigResponse"],["/numerology/definitions?locale=vi","DefinitionsResponse"]]) {
   await check(`GET ${path}: 200 and OpenAPI schema`,async()=>{ const response=await get(path);assert.equal(response.status,200);schema(name).parse(await response.json()); });
 }
+const consonantFixture = { ...fixture.input, yMode: "consonant" };
 let calculated;
 await check("Calculate fixture A: all nine constants, complete steps, versions and no-store",async()=>{
-  const response=await post(fixture.input);assert.equal(response.status,200);assert.equal(response.headers.get("cache-control"),"no-store");assert.equal(response.headers.get("etag"),null);
+  const response=await post(consonantFixture);assert.equal(response.status,200);assert.equal(response.headers.get("cache-control"),"no-store");assert.equal(response.headers.get("etag"),null);
   const body=await response.json();schema("CalculateResponse").parse(body);calculated=body;
   assert.equal(body.data.referenceDate,fixture.input.referenceDate);assert.equal(body.data.calculationVersion,"v1");assert.equal(body.data.contentVersion,"v1.0.0-draft");
   for (const [type,expected] of Object.entries(fixture.expected)) {
@@ -29,7 +30,7 @@ await check("Calculate fixture A: all nine constants, complete steps, versions a
   }
 });
 await check("Calculate repeated requests are identical",async()=>{
-  assert.ok(calculated);for(let repeat=0;repeat<2;repeat++)assert.deepEqual(await (await post(fixture.input)).json(),calculated);
+  assert.ok(calculated);for(let repeat=0;repeat<2;repeat++)assert.deepEqual(await (await post(consonantFixture)).json(),calculated);
 });
 await check("Calculate omitted referenceDate uses UTC calendar date",async()=>{
   const before=new Date().toISOString().slice(0,10);const input={...fixture.input};delete input.referenceDate;

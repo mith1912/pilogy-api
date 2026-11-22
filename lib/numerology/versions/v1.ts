@@ -7,7 +7,8 @@ export const v1Engine: CalculationEngine = {
   version: "v1",
   calculate(input) {
     const birth = parseCalendarDate(input.birthDate);
-    const name = analyzeName(input.fullName);
+    const { yModeRequested = input.yMode } = input;
+    const { calculationOptions, ...name } = analyzeName(input.fullName, yModeRequested);
     if (!name.vowelTotal || !name.consonantTotal) throw new UnspecifiedCalculationRuleError();
     const componentSteps: CalculationStep[] = [];
     const reduceComponent = (value: number, preserve: boolean, label: string) => {
@@ -39,6 +40,6 @@ export const v1Engine: CalculationEngine = {
     ];
     const personalYear = sumAndReduce("personalYear", personalComponents, false, [...componentSteps], input.referenceDate);
     const personalMonth = sumAndReduce("personalMonth", [personalYear.value, target.month], false, [], input.referenceDate);
-    return { calculationVersion: "v1", referenceDate: input.referenceDate, name, indices: { ...indices, personalYear, personalMonth } };
+    return { calculationVersion: "v1", referenceDate: input.referenceDate, name, calculationOptions, indices: { ...indices, personalYear, personalMonth } };
   },
 };

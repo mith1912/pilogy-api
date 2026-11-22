@@ -1,9 +1,10 @@
-import { CONTENT_VERSION, getInterpretationSummaries } from "@/lib/interpretations/catalog";
+import { CONTENT_VERSION, getInterpretation, getInterpretationSummaries } from "@/lib/interpretations/catalog";
 import type { CalculateApiData } from "@/lib/types/api";
 import { ApiError } from "@/lib/api/errors";
 import { assertNoQuery, readJson } from "@/lib/api/request";
 import { failure, success } from "@/lib/api/response";
 import { UnspecifiedCalculationRuleError } from "@/lib/numerology/types";
+import { generateOverallSummary } from "@/lib/numerology/overall-summary";
 import { calculateNumerology } from "@/lib/numerology/service";
 import { calculateSchema } from "@/lib/validation/calculate";
 
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
       throw new ApiError(400, "VALIDATION_ERROR", "Request validation failed.",
         parsed.error.issues.map((issue) => ({
           // Only known field paths are exposed; never echo user input or unknown keys.
-          field: ["fullName", "birthDate", "referenceDate", "targetDate", "locale"].includes(String(issue.path[0]))
+          field: ["fullName", "birthDate", "referenceDate", "targetDate", "locale", "yMode"].includes(String(issue.path[0]))
             ? String(issue.path[0]) : "body",
           code: issue.code,
         })),
@@ -25,7 +26,8 @@ export async function POST(request: Request) {
     }
     const result = calculateNumerology(parsed.data);
     return success<CalculateApiData>({ ...result, locale: parsed.data.locale, contentVersion: CONTENT_VERSION,
-      interpretations: getInterpretationSummaries(result.indices) });
+      interpretations: getInterpretationSummaries(result.indices),
+      overallSummary: generateOverallSummary(result, getInterpretation) });
   } catch (error) {
     if (error instanceof UnspecifiedCalculationRuleError) {
       return failure(new ApiError(422, "CALCULATION_RULE_UNSPECIFIED", error.message));

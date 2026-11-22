@@ -45,8 +45,8 @@ export function getInterpretationSummaries(indices: CalculationResult["indices"]
   return Object.fromEntries(INDEX_IDS.map((index) => {
     const item = summariesByKey.get(`${index}/${indices[index].value}`);
     if (!item) {
-      // Static catalog coordinates only: never log input, dates or calculation results.
-      console.error("INTERPRETATION_CONTENT_MISSING", { index, value: indices[index].value });
+      // Log the catalog index without the calculated value.
+      console.error("INTERPRETATION_CONTENT_MISSING", { index });
       throw new ApiError(500, "INTERPRETATION_CONTENT_MISSING", "Required interpretation content is unavailable.",
         [{ field: `interpretations.${index}`, code: `MISSING_VALUE_${indices[index].value}` }]);
     }

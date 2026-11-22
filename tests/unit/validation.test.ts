@@ -7,10 +7,10 @@ afterEach(() => vi.useRealTimers());
 
 const valid = { fullName: " Nguyễn An ", birthDate: "2000-02-29" };
 describe("validation", () => {
-  it("accepts Unicode names, trims and defaults locale", () => {
+  it("accepts Unicode names, trims and defaults locale and Y mode", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-11-08T23:59:59Z"));
-    expect(calculateSchema.parse(valid)).toEqual({ ...valid, fullName: "Nguyễn An", locale: "vi", referenceDate: "2026-11-08" });
+    expect(calculateSchema.parse(valid)).toEqual({ ...valid, fullName: "Nguyễn An", locale: "vi", referenceDate: "2026-11-08", yMode: "auto", yModeRequested: null });
   });
   it.each(["2023-02-29", "1900-02-29", "2000-02-30", "2020-04-31", "2020-13-01", "0000-01-01", "2020-1-01", "2020-01-01T00:00:00Z", "bad"])("rejects invalid date %s", (birthDate) => {
     expect(calculateSchema.safeParse({ ...valid, birthDate }).success).toBe(false);

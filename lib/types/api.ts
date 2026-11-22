@@ -5,5 +5,6 @@ export type ApiResponse<T> =
 export type CalculateApiData = import("@/lib/numerology/types").CalculationResult & {
   locale: (typeof import("@/lib/config").SUPPORTED_LOCALES)[number];
   contentVersion: string;
+  overallSummary: ReturnType<typeof import("@/lib/numerology/overall-summary").generateOverallSummary>;
   interpretations: Record<import("@/lib/numerology/types").IndexId, import("@/lib/interpretations/catalog").InterpretationSummary>;
 };

@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "contentVersion": "v1.1.0",
+  "locale": "vi",
+  "title": "Tổng luận thần số học",
+  "sections": {
+    "overview": {
+      "title": "Tổng quan bản thân",
+      "repeat": "Có những nét tính cách dường như xuất hiện trong nhiều khía cạnh cuộc sống của bạn. Chủ đề {theme} cùng hiện diện ở Số chủ đạo và Số biểu đạt, gợi ý rằng điều bạn hướng tới và cách bạn thể hiện có thể mang một dấu ấn chung. Đôi khi chính những phẩm chất quen thuộc nhất lại là điều chúng ta ít nhận ra ở bản thân. Khám phá sâu hơn hai chỉ số này có thể mang đến một góc nhìn thú vị về con người bạn.",
+      "explore": "Không phải lúc nào con đường bạn muốn đi cũng giống với cách bạn thể hiện mình trước thế giới. Số chủ đạo gợi mở xu hướng {direction}, trong khi Số biểu đạt mang sắc thái {expression}. Hai khía cạnh ấy có thể bổ trợ nhau, nhưng đôi lúc cũng khiến bạn cảm thấy có những mong muốn trái chiều. Hiểu rõ từng chỉ số là một cách để nhìn lại sự kết hợp rất riêng này."
+    },
+    "strengths": {
+      "title": "Điểm mạnh nổi bật",
+      "compose": "Có những khả năng bạn sử dụng rất tự nhiên, đến mức đôi khi quên rằng đó cũng có thể là điểm mạnh của mình. Chủ đề {strength} từ Số ngày sinh gợi mở một phẩm chất đáng khám phá trong cách bạn phát huy Số biểu đạt. Một hướng để nhận ra phẩm chất ấy rõ hơn là: {action} Biết đâu điều khiến bạn khác biệt lại bắt đầu từ những gì vốn rất quen thuộc."
+    },
+    "challenges": {
+      "title": "Thử thách cần lưu ý",
+      "compose": "Ai cũng có những khuynh hướng vừa giúp mình tiến lên, vừa đôi lúc khiến bản thân chững lại. Với Số chủ đạo của bạn, một chủ đề đáng suy ngẫm là {challenge}. Điều đó không định nghĩa con người bạn, mà mở ra cơ hội nhìn nhận những phản ứng quen thuộc từ một góc khác. Một gợi ý nhỏ để bắt đầu là: {action}"
+    },
+    "innerSelf": {
+      "title": "Nội tâm và động lực",
+      "repeat": "Đôi khi, con người bạn thể hiện ra bên ngoài lại gần với những điều bạn thực sự mong muốn bên trong hơn bạn nghĩ. Số linh hồn và Số nhân cách cùng gợi lên chủ đề {theme}, tạo nên một điểm giao thú vị giữa cảm xúc và cách thể hiện. Tuy vậy, không phải lúc nào người khác cũng nhìn thấy đầy đủ những gì bạn đang trải qua. Hai chỉ số này có thể giúp bạn suy ngẫm về khoảng cách giữa việc được nhìn thấy và được thấu hiểu.",
+      "explore": "Có bao giờ bạn cảm thấy người khác nhìn nhận mình khác với con người thật bên trong? Số linh hồn gợi mở những mong muốn gắn với {inner}, còn Số nhân cách phản ánh sắc thái {outward} trong cách bạn hiện diện. Sự khác biệt ấy không nhất thiết là mâu thuẫn, mà có thể là những lớp tính cách cùng tồn tại. Hiểu cả hai sẽ giúp bạn có thêm góc nhìn về điều mình cần và cách mình bộc lộ điều đó."
+    },
+    "relationships": {
+      "title": "Mối quan hệ và giao tiếp",
+      "compose": "Trong các mối quan hệ, điều người khác cảm nhận về bạn đôi khi chỉ là một phần của câu chuyện. Số nhân cách gợi lên chủ đề {theme}, trong khi Số linh hồn giúp soi chiếu những mong muốn riêng ít được nói thành lời. Có lẽ một câu hỏi đáng dành thời gian suy ngẫm là: {reflection} Bởi sự kết nối sâu sắc thường bắt đầu từ việc hiểu cả người khác lẫn chính mình."
+    },
+    "growthAdvice": {
+      "title": "Định hướng phát triển",
+      "compose": "Bạn không cần trở thành một con người hoàn toàn khác để trưởng thành. Đôi khi, sự thay đổi bắt đầu từ việc hiểu rõ hơn những phẩm chất mình đã có. Số trưởng thành gợi mở hành trình phát triển gắn với {theme}, như một hướng tham khảo cho những chặng đường phía trước. Một câu hỏi có thể giúp bạn nhìn sâu hơn là: {reflection}"
+    },
+    "currentCycle": {
+      "title": "Nhịp điệu của kỳ đã chọn",
+      "year": "Mỗi giai đoạn cuộc sống đều có những điều khiến chúng ta quan tâm nhiều hơn. Theo góc nhìn thần số học, năm {year} mang chủ đề {theme}, gợi ra một hướng để bạn nhìn lại những ưu tiên của mình. Đây không phải dự đoán về điều chắc chắn sẽ xảy ra, mà là một lăng kính để suy ngẫm về hành trình cá nhân.",
+      "month": "Trong bức tranh của cả năm, mỗi tháng lại mở ra một góc nhìn riêng. Tháng {month}/{year} gợi lên chủ đề {theme}, có thể giúp bạn chú ý hơn đến một khía cạnh trong cuộc sống. Một điều nhỏ đáng thử trong giai đoạn này là: {action} Đôi khi, những thay đổi đáng nhớ bắt đầu từ cách ta nhìn nhận các việc rất bình thường.",
+      "repeat": "Có những chủ đề không chỉ xuất hiện một lần, mà trở lại để chúng ta nhìn nhận từ một góc độ khác. Tháng {month}/{year} tiếp nối nhịp điệu của năm, tạo cơ hội khám phá sâu hơn điều đang được quan tâm. Một gợi ý dành cho giai đoạn này là: {action} Điều thú vị có thể nằm ở cách trải nghiệm của bạn thay đổi theo thời gian."
+    }
+  },
+  "overviewCombinations": [
+    {
+      "lifePath": 7,
+      "expression": 3,
+      "content": "Bạn có thể là người suy nghĩ nhiều hơn những gì mình thể hiện. Bên trong là mong muốn hiểu thật sâu, nhưng cũng có một phần bạn muốn chia sẻ những điều mình khám phá theo cách riêng. Đôi khi, chính việc nói ra suy nghĩ lại giúp bạn hiểu bản thân rõ hơn. Sự kết hợp này gợi một hành trình thú vị giữa thế giới nội tâm và khả năng biểu đạt."
+    },
+    {
+      "lifePath": 4,
+      "expression": 5,
+      "content": "Một phần trong bạn tìm kiếm sự ổn định, trong khi phần khác luôn tò mò về những điều chưa biết. Bạn có thể vừa muốn mọi thứ nằm trong kế hoạch, vừa cảm thấy cuộc sống thiếu màu sắc nếu ngày nào cũng giống nhau. Hai xu hướng tưởng chừng đối lập ấy không nhất thiết phải mâu thuẫn. Khi hiểu cách chúng bổ trợ cho nhau, bạn có thể tìm thấy nhịp sống phù hợp hơn với chính mình."
+    },
+    {
+      "lifePath": 11,
+      "expression": 22,
+      "content": "Bạn có thể mang trong mình những ý tưởng lớn, đôi khi đi cùng cảm giác khó diễn tả thành lời. Sự nhạy cảm giúp bạn nhận ra những điều tinh tế, còn khuynh hướng xây dựng thôi thúc bạn biến cảm nhận ấy thành điều có hình hài. Không phải ý tưởng nào cũng cần trở thành hiện thực ngay lập tức. Điều đáng khám phá là cách bạn cân bằng giữa trực giác, kỳ vọng và những bước đi thực tế."
+    }
+  ]
+}

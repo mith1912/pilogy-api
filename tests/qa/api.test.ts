@@ -49,7 +49,7 @@ it("verifies all fixture A fields, steps, summaries and repeatability through na
   try {
     const results = [];
     for (let i=0;i<3;i++) {
-      const response = await POST(request(input));
+      const response = await POST(request({ ...input, yMode: "consonant" }));
       expect(response.status).toBe(200);
       expect(response.headers.get("cache-control")).toBe("no-store");
       expect(response.headers.has("etag")).toBe(false);

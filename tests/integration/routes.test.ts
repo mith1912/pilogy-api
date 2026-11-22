@@ -83,7 +83,7 @@ it("returns all nine indices for the approved reference date", async () => {
   const { data } = await response.json();
   expect(data.referenceDate).toBe("2026-11-08");
   expect(Object.fromEntries(Object.entries(data.indices).map(([key, index]) => [key, (index as { value: number }).value])))
-    .toEqual({ lifePath: 8, expression: 3, soulUrge: 1, personality: 11, birthday: 2, attitude: 7, maturity: 11, personalYear: 8, personalMonth: 1 });
+    .toEqual({ lifePath: 8, expression: 3, soulUrge: 8, personality: 4, birthday: 2, attitude: 7, maturity: 11, personalYear: 8, personalMonth: 1 });
   for (const [type, index] of Object.entries(data.indices)) {
     expect(index).toMatchObject({ type, value: expect.any(Number), baseValue: expect.any(Number), steps: expect.any(Array) });
   }

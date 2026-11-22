@@ -13,9 +13,9 @@ afterEach(() => {
   else process.env.TZ = originalTZ;
 });
 
-describe("independent explicit V1 vectors", () => {
+describe("independent V1 vectors with the explicit consonant convention", () => {
   it.each(fixtures)("$id: verifies all nine values, bases, letter order and every step", (fixture) => {
-    const result = calculateNumerology({ ...fixture.input, locale: "vi" });
+    const result = calculateNumerology({ ...fixture.input, locale: "vi", yMode: "consonant" });
     expect(result.name).toMatchObject(fixture.name);
     const expectedLetters = [...fixture.name.normalizedName.replaceAll(" ", "")].map((letter) => ({ letter, value: table[letter], group: "AEIOU".includes(letter) ? "vowel" : "consonant" }));
     expect(result.name.letters).toEqual(expectedLetters);
@@ -65,7 +65,7 @@ describe("independent explicit V1 vectors", () => {
     }
   });
   it("compares every fixture A step against manually transcribed arithmetic", () => {
-    const result = calculateNumerology({ ...fixtures[0].input, locale: "vi" });
+    const result = calculateNumerology({ ...fixtures[0].input, locale: "vi", yMode: "consonant" });
     expect(Object.fromEntries(INDEX_IDS.map((type) => [type, result.indices[type].steps]))).toEqual(fixtureASteps);
   });
   it("covers all reachable Life Paths and supported masters with actual witnesses", () => {
@@ -84,7 +84,7 @@ describe("independent explicit V1 vectors", () => {
     process.env.TZ = timezone;
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2040-01-01T00:01:00Z"));
-    const result = calculateNumerology({ ...fixtures[0].input, locale: "vi" });
+    const result = calculateNumerology({ ...fixtures[0].input, locale: "vi", yMode: "consonant" });
     for (const type of INDEX_IDS) expect(result.indices[type]).toMatchObject(fixtures[0].expected[type]);
   });
 });

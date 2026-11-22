@@ -1154,6 +1154,16 @@
               "vi"
             ],
             "default": "vi"
+          },
+          "yMode": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "vowel",
+              "consonant"
+            ],
+            "default": "auto",
+            "description": "Optional JSON field. Auto classifies each Y and falls back to consonant for unsupported spellings. Use consonant for the former default."
           }
         }
       },
@@ -1167,7 +1177,9 @@
           "referenceDate",
           "name",
           "indices",
-          "interpretations"
+          "interpretations",
+          "calculationOptions",
+          "overallSummary"
         ],
         "properties": {
           "calculationVersion": {
@@ -1279,6 +1291,12 @@
                 "$ref": "#/components/schemas/Summary"
               }
             }
+          },
+          "calculationOptions": {
+            "$ref": "#/components/schemas/CalculationOptions"
+          },
+          "overallSummary": {
+            "$ref": "#/components/schemas/OverallSummary"
           }
         }
       },
@@ -1692,6 +1710,241 @@
           },
           "data": {
             "$ref": "#/components/schemas/HealthData"
+          }
+        }
+      },
+      "CalculationOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "yModeRequested",
+          "yModeApplied",
+          "classificationRulesVersion",
+          "fallbackUsed",
+          "yOccurrences"
+        ],
+        "properties": {
+          "yModeRequested": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "vowel",
+                  "consonant"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "yModeApplied": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "vowel",
+              "consonant"
+            ]
+          },
+          "classificationRulesVersion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fallbackUsed": {
+            "type": "boolean"
+          },
+          "yOccurrences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "originalCharacter",
+                "classification",
+                "numericValue",
+                "ruleId"
+              ],
+              "properties": {
+                "originalCharacter": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "classification": {
+                  "type": "string",
+                  "enum": [
+                    "vowel",
+                    "consonant"
+                  ]
+                },
+                "numericValue": {
+                  "const": 7
+                },
+                "ruleId": {
+                  "type": "string",
+                  "enum": [
+                    "legacy-fallback",
+                    "forced-vowel",
+                    "forced-consonant",
+                    "vi-vowel-nucleus",
+                    "vi-compound-nucleus",
+                    "vi-final-glide"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "OverallSummary": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "locale",
+          "title",
+          "sourceIndices",
+          "contentVersion",
+          "completeness"
+        ],
+        "properties": {
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locale": {
+            "const": "vi"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "overview": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "strengths": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "challenges": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "innerSelf": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "growthAdvice": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "currentCycle": {
+            "$ref": "#/components/schemas/OverallSummarySection"
+          },
+          "sourceIndices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "value"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "lifePath",
+                    "expression",
+                    "soulUrge",
+                    "personality",
+                    "birthday",
+                    "maturity",
+                    "personalYear",
+                    "personalMonth"
+                  ]
+                },
+                "value": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    11,
+                    22,
+                    33
+                  ]
+                }
+              }
+            }
+          },
+          "contentVersion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "completeness": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "missingSections",
+              "missingIndices"
+            ],
+            "properties": {
+              "missingSections": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "overview",
+                    "strengths",
+                    "challenges",
+                    "innerSelf",
+                    "relationships",
+                    "growthAdvice",
+                    "currentCycle"
+                  ]
+                }
+              },
+              "missingIndices": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "lifePath",
+                    "expression",
+                    "soulUrge",
+                    "personality",
+                    "birthday",
+                    "maturity",
+                    "personalYear",
+                    "personalMonth"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "OverallSummarySection": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "content"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }

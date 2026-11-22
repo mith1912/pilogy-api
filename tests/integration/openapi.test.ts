@@ -27,6 +27,7 @@ it("validates real endpoint success envelopes against the published response sch
     ["DefinitionsResponse", definitions(new Request(`${base}/definitions`))],
     ["FullContentResponse", await content(new Request(`${base}/interpretations/personality/11`), { params: Promise.resolve({ index: "personality", value: "11" }) })],
     ["CalculateResponse", await POST(calculateRequest({ fullName: "Nguyễn Văn An", birthDate: "1990-05-20", referenceDate: "2026-11-08" }))],
+    ["CalculateResponse", await POST(calculateRequest({ fullName: "Mỹ Tây Yvonne", birthDate: "1990-05-20", yMode: "auto" }))],
   ] as const;
   for (const [name, response] of responses) {
     expect(response.status).toBe(200);

@@ -6,7 +6,7 @@ import { INDEX_IDS, type IndexId } from "@/lib/numerology/types";
 
 it.each(witnesses)("reachable domain witness $type/$value", (witness) => {
   const type = witness.type as IndexId;
-  expect(calculateNumerology({ ...witness.input, locale: "vi" }).indices[type].value).toBe(witness.value);
+  expect(calculateNumerology({ ...witness.input, locale: "vi", yMode: "consonant" }).indices[type].value).toBe(witness.value);
 });
 it("definitions match exactly the independently witnessed domain", () => {
   expect(witnesses).toHaveLength(101);

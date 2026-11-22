@@ -13,7 +13,7 @@ Every application error includes `details`, either empty or safe `{ field, code 
 | --- | --- | --- |
 | GET | `/health` | `{ status: "ok", apiVersion: "v1" }`, liveness only |
 | GET | `/config` | Public configuration and capability flags |
-| POST | `/numerology/calculate` | All nine numerical indices and all nine short summaries |
+| POST | `/numerology/calculate` | Nine numerical indices, nine short interpretations, calculation options and an overall summary |
 | GET | `/numerology/definitions?locale=vi` | Metadata for all nine index types and coverage |
 | GET | `/numerology/interpretations/{type}/{value}?locale=vi` | One complete imported article |
 
@@ -41,11 +41,12 @@ Content-Type: application/json
 | birthDate | Required real Gregorian YYYY-MM-DD, years 0001–9999 |
 | referenceDate | Optional real Gregorian YYYY-MM-DD; defaults to current UTC calendar date |
 | locale | Optional `vi`, default `vi` |
+| yMode | Optional `auto`, `vowel`, or `consonant`. Defaults to `auto`. Explicit `consonant` reproduces the former default. |
 | targetDate | Deprecated compatibility alias; used when referenceDate is omitted; both must agree if supplied |
 
 Timestamps, impossible dates, null values, unknown fields and non-object bodies are rejected. Future birth dates remain accepted. JSON charset parameters are accepted; actual streamed UTF-8 bytes are limited to 4,096, regardless of Content-Length. No raw payloads or validation exceptions are logged.
 
-Successful `data` contains `calculationVersion`, `contentVersion`, `locale`, effective `referenceDate`, `name`, `indices`, and `interpretations`. The original calculation fields and steps are unchanged. `name` includes `normalizedName`, `nameTotal`, `vowelTotal`, `consonantTotal`, and `letters` with `{ letter, value, group: "vowel" | "consonant" }`.
+Successful `data` contains `calculationVersion`, `contentVersion`, `locale`, effective `referenceDate`, `name`, `indices`, and `interpretations`. It also contains [`calculationOptions`](y-classification.md) and [`overallSummary`](overall-summary.md). The default mode can change Soul Urge and Personality for existing callers that omit `yMode`. `name` includes `normalizedName`, `nameTotal`, `vowelTotal`, `consonantTotal`, and `letters` with `{ letter, value, group: "vowel" | "consonant" }`.
 
 `indices` and `interpretations` both have all nine keys, listed below. Each numerical index has `{ type, value, baseValue, steps }`; personal cycles also retain `referenceDate`. Each step has `{ label, operation: "sum" | "digitSum", inputs: number[], result }`. Steps include reductions, component sums and master base reductions. No steps are removed for payload optimization.
 
@@ -57,8 +58,8 @@ For the example above, `calculationVersion` is `v1`, `contentVersion` is `v1.0.0
 | --- | --- | --- |
 | lifePath | 8 | 8 |
 | expression | 3 | 3 |
-| soulUrge | 1 | 1 |
-| personality | 11 | 2 |
+| soulUrge | 8 | 8 |
+| personality | 4 | 4 |
 | birthday | 2 | 2 |
 | attitude | 7 | 7 |
 | maturity | 11 | 2 |
@@ -96,7 +97,7 @@ Successful data is `{ calculationVersion: "v1", locale: "vi", contentVersion: "v
 - relationships, careerAndGrowth, lifeLesson, reflection, affirmation
 - keywords (string array), suggestedAction, periodFocus when present
 
-The 99 imported entries are statically imported and validated once per module initialization, not reparsed per request. Content is draft and must be editorially reviewed before release. Birthday 11/22 articles are missing, even though the engine can return those values (day 29 also reduces to Birthday 11). Full lookup returns 404 and Calculate returns 500 for those missing articles. No JSON text or formulas have been changed.
+The 101 imported entries are validated once per module initialization and cover all supported values, including Birthday 11 and 22. Their current catalog version is `v1.0.0-draft`. Summary copy has its own content version.
 
 ## Definitions
 

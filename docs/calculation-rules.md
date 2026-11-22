@@ -8,7 +8,7 @@ Replace Đ/đ with D, decompose Unicode using NFD, remove combining marks, upper
 
 The supplied rules do not define a zero-total vowel or consonant group. Until that convention is specified, full-profile calculation for such names raises UnspecifiedCalculationRuleError (HTTP 422), rather than inventing a numeric index. Name analysis can still report their raw totals.
 
-Vowels: A E I O U. Y is always a consonant. Letter values:
+Vowels: A E I O U. Y uses automatic classification by default. The [`yMode`](y-classification.md) override can change its group while its value stays 7. Letter values:
 
 | Value | Letters |
 | --- | --- |
@@ -46,7 +46,7 @@ Dates are Gregorian YYYY-MM-DD strings (0001–9999), parsed as integer componen
 
 ## Approved examples
 
-Nguyễn Văn An, born 1990-05-20, target 2026-11-08:
+Nguyễn Văn An, born 1990-05-20, target 2026-11-08, with explicit `yMode: "consonant"` to reproduce the former default:
 
 - Normalized: NGUYEN VAN AN; total 48; vowels 10; consonants 38.
 - Life Path: month 5 + day (20→2) + year (1990→19→10→1) = 8.

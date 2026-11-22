@@ -21,7 +21,8 @@ export type IndexResult = {
 };
 export type CalculationResult = {
   calculationVersion: CalculationVersion;
-  name: ReturnType<typeof import("./name").analyzeName>;
+  name: Omit<ReturnType<typeof import("./name").analyzeName>, "calculationOptions">;
+  calculationOptions: ReturnType<typeof import("./versions/y-classification").classifyYInName>;
   referenceDate: string;
   indices: Record<IndexId, IndexResult>;
 };

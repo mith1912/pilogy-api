@@ -8,12 +8,12 @@ import { calculateSchema } from "@/lib/validation/calculate";
 const profile = { fullName: "Nguyễn Văn An", birthDate: "1990-05-20", referenceDate: "2026-11-08", locale: "vi" as const };
 const calculate = () => calculateNumerology(profile);
 describe("reviewed V1 examples", () => {
-  it("matches every supplied expected result", () => {
+  it("matches expected results under the automatic default", () => {
     const result = calculate();
-    expect(result.name).toMatchObject({ normalizedName: "NGUYEN VAN AN", nameTotal: 48, vowelTotal: 10, consonantTotal: 38 });
+    expect(result.name).toMatchObject({ normalizedName: "NGUYEN VAN AN", nameTotal: 48, vowelTotal: 17, consonantTotal: 31 });
     expect(Object.fromEntries(Object.entries(result.indices).map(([key, index]) => [key, index.value])))
-      .toEqual({ lifePath: 8, expression: 3, soulUrge: 1, personality: 11, birthday: 2, attitude: 7, maturity: 11, personalYear: 8, personalMonth: 1 });
-    expect(result.indices.personality.baseValue).toBe(2);
+      .toEqual({ lifePath: 8, expression: 3, soulUrge: 8, personality: 4, birthday: 2, attitude: 7, maturity: 11, personalYear: 8, personalMonth: 1 });
+    expect(result.indices.personality.baseValue).toBe(4);
     expect(result.indices.maturity.baseValue).toBe(2);
     expect(result.indices.personalMonth?.referenceDate).toBe(profile.referenceDate);
   });
@@ -47,7 +47,7 @@ it("maps every Pythagorean letter", () => {
 it("normalizes Vietnamese names, decomposed marks, punctuation and Đ", () => {
   expect(normalizeName("  Đặng\tThị—Ánh! ")).toBe("DANG THIANH");
   expect(normalizeName("Nguyễn Văn An".normalize("NFD"))).toBe("NGUYEN VAN AN");
-  expect(analyzeName("Y An")).toMatchObject({ vowelTotal: 1, consonantTotal: 12 });
+  expect(analyzeName("Y An")).toMatchObject({ vowelTotal: 8, consonantTotal: 5 });
 });
 it.each(["", "   ", "--!", "123", "你好"])("rejects names with no calculable letters: %s", (fullName) => {
   expect(calculateSchema.safeParse({ ...profile, fullName }).success).toBe(false);
