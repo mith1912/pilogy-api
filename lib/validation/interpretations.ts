@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { INDEX_IDS } from "@/lib/numerology/types";
+import { getSupportedValues } from "@/lib/interpretations/definitions";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/lib/config";
 
 const text = z.string().refine((value) => value.trim().length > 0, "Text must not be blank.");
@@ -27,6 +28,9 @@ export const interpretationFileSchema = z.strictObject({
   for (const item of file.items) {
     if (item.index !== file.index || seen.has(item.value)) ctx.addIssue({ code: "custom", message: "Duplicate or mismatched content index." });
     seen.add(item.value);
+  }
+  for (const required of getSupportedValues(file.index)) {
+    if (!seen.has(required)) ctx.addIssue({ code: "custom", message: `Missing interpretation: ${file.index}/${required}.` });
   }
 });
 export const interpretationParamsSchema = z.strictObject({

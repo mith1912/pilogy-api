@@ -398,6 +398,106 @@
         "góc nhìn rộng và khát vọng đóng góp"
       ],
       "suggestedAction": "Chọn một việc có ích trong tầm sức, đồng thời buông một kỳ vọng không còn phù hợp."
+    },
+    {
+      "index": "birthday",
+      "value": 11,
+      "baseValue": 2,
+      "title": "Người Khơi Sáng Cảm Nhận",
+      "subtitle": "Lắng nghe tinh tế, diễn đạt rõ ràng",
+      "tagline": "Số ngày sinh 11 · Lắng nghe tinh tế, diễn đạt rõ ràng",
+      "summary": "Số ngày sinh 11 gợi mở năng lực nhận ra những sắc thái khó gọi tên và chuyển chúng thành lời nói, hình ảnh hoặc ý tưởng có ích. Điểm nhấn của ngày sinh này là sự kết hợp giữa cảm nhận tinh tế và khả năng truyền cảm hứng. Giá trị 11 được giữ nguyên, với nền 2 nhắc về sự lắng nghe và hợp tác. Đây là một chủ đề để tự suy ngẫm, không phải bằng chứng rằng bạn có trực giác đặc biệt hay luôn hiểu đúng người khác.",
+      "essence": "Hình ảnh Người Khơi Sáng Cảm Nhận hướng đến cách bạn đón nhận một tín hiệu nhỏ rồi tìm hình thức diễn đạt phù hợp. Đó có thể là nhận ra một người đang ngập ngừng, thấy một câu chuyện chưa được kể hoặc tìm được ví dụ giúp người khác hiểu điều phức tạp. Với số ngày sinh 11, điều đáng rèn không chỉ là sự nhạy cảm mà còn là khả năng kiểm chứng: cảm nhận ban đầu cần được đối chiếu bằng câu hỏi, quan sát và phản hồi. Nền 2 đưa việc lắng nghe vào trung tâm, giúp ý tưởng được nuôi dưỡng qua đối thoại. Bạn không cần lúc nào cũng sâu sắc hay trở thành nguồn động viên cho mọi người. Một khoảng nghỉ và một ranh giới rõ ràng cũng là cách giữ cho sự chú ý của mình có chất lượng.",
+      "strengths": [
+        {
+          "title": "Nhận ra sắc thái",
+          "description": "Bạn có thể luyện cách chú ý đến nhịp nói và sự ngập ngừng, rồi hỏi lại thay vì tự kết luận người khác đang nghĩ gì."
+        },
+        {
+          "title": "Diễn đạt điều khó gọi tên",
+          "description": "Một hình ảnh, ví dụ hoặc đoạn viết ngắn có thể giúp bạn chia sẻ cảm nhận mà lời giải thích khô cứng chưa thể hiện được."
+        },
+        {
+          "title": "Khơi mở đối thoại",
+          "description": "Khi dành chỗ cho nhiều cách nhìn, bạn có thể giúp một cuộc trò chuyện đi từ bối rối đến câu hỏi cụ thể hơn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Nhầm cảm nhận với sự thật",
+          "description": "Nếu thấy một tín hiệu khiến mình lo lắng, hãy tách điều quan sát được khỏi phần suy đoán và kiểm tra bằng một câu hỏi nhẹ nhàng."
+        },
+        {
+          "title": "Mang quá nhiều cảm xúc của người khác",
+          "description": "Thống nhất thời gian lắng nghe và cho phép mình dừng lại khi đã mệt; sự quan tâm không đòi hỏi bạn luôn sẵn sàng."
+        },
+        {
+          "title": "Chờ ý tưởng thật hoàn hảo",
+          "description": "Thử chia sẻ một bản nháp nhỏ để nhận phản hồi, thay vì giữ ý tưởng trong đầu cho đến khi mất động lực."
+        }
+      ],
+      "relationships": "Trong quan hệ gần gũi, sự tinh tế chỉ hữu ích khi đi cùng việc hỏi và nghe câu trả lời. Thay vì nói rằng mình biết người kia buồn, bạn có thể kể điều vừa quan sát và hỏi họ có muốn chia sẻ không. Cũng hãy nói rõ nhu cầu yên tĩnh của mình; người khác không có trách nhiệm tự đoán những giới hạn bạn chưa bộc lộ.",
+      "careerAndGrowth": "Bạn có thể khám phá những hoạt động cần quan sát, diễn đạt và kết nối góc nhìn như viết, thiết kế, thuyết trình hoặc hướng dẫn học tập. Hãy đánh giá mức độ phù hợp qua sản phẩm thực tế và phản hồi cụ thể. Ngày sinh không quyết định nghề nghiệp; một ý tưởng truyền cảm hứng vẫn cần kiến thức, thời gian luyện tập và cách truyền đạt dễ hiểu.",
+      "lifeLesson": "Sự nhạy cảm có thể trở thành một nguồn lực khi bạn biết chọn điều cần chú ý và điều có thể để qua. Không phải cảm nhận nào cũng cần biến thành hành động ngay. Tập giữ một khoảng dừng giữa tín hiệu ban đầu và kết luận giúp bạn vừa tôn trọng trải nghiệm của mình, vừa để thực tế có cơ hội lên tiếng.",
+      "reflection": "Cảm nhận nào gần đây của bạn cần được hỏi lại trước khi trở thành một kết luận?",
+      "affirmation": "Tôi lắng nghe cảm nhận của mình và dành chỗ cho sự kiểm chứng.",
+      "keywords": [
+        "cảm nhận tinh tế",
+        "diễn đạt",
+        "lắng nghe",
+        "kiểm chứng"
+      ],
+      "suggestedAction": "Ghi lại một tình huống theo ba cột: điều đã quan sát, điều mình suy đoán và câu hỏi có thể giúp làm rõ. Chọn một câu hỏi để thực hành trong tuần."
+    },
+    {
+      "index": "birthday",
+      "value": 22,
+      "baseValue": 4,
+      "title": "Người Dựng Nhịp Cầu Thực Tế",
+      "subtitle": "Đưa tầm nhìn vào từng bước có thể làm",
+      "tagline": "Số ngày sinh 22 · Đưa tầm nhìn vào từng bước có thể làm",
+      "summary": "Số ngày sinh 22 gợi mở năng lực nối một ý tưởng có quy mô với những bước triển khai cụ thể và sự phối hợp của nhiều người. Điểm nhấn không nằm ở lời hứa về thành tựu lớn, mà ở việc học cách xây dựng điều hữu ích, có thể vận hành và được cải thiện. Giá trị 22 được giữ nguyên, với nền 4 nhắc về cấu trúc và tính bền bỉ. Bạn có thể chọn rèn những phẩm chất này theo hoàn cảnh và nguồn lực thực tế của mình.",
+      "essence": "Người Dựng Nhịp Cầu Thực Tế là hình ảnh của việc đi qua khoảng cách giữa điều mong muốn và điều có thể thực hiện. Với số ngày sinh 22, một ý tưởng chỉ bắt đầu có hình hài khi bạn xác định người cần được phục vụ, nguồn lực đang có và bước thử nghiệm đầu tiên. Nền 4 gợi về thói quen, tiêu chuẩn và nhịp làm việc ổn định; điểm nhấn 22 mở rộng câu hỏi sang cách các phần việc liên kết để tạo ra ích lợi chung. Điều đó không có nghĩa bạn phải gánh một dự án lớn hay chứng minh mình khác biệt. Một lịch sinh hoạt chung dễ dùng hoặc một quy trình nhỏ giúp nhóm bớt nhầm lẫn cũng là cơ hội thực hành. Quy mô phù hợp là quy mô bạn có thể chăm sóc, kiểm tra và điều chỉnh cùng những người liên quan.",
+      "strengths": [
+        {
+          "title": "Nối mục tiêu với cấu trúc",
+          "description": "Bạn có thể luyện cách chia một mong muốn rộng thành các phần việc có thứ tự, người phụ trách và dấu hiệu hoàn thành rõ ràng."
+        },
+        {
+          "title": "Nhìn sự liên kết",
+          "description": "Khi thay đổi một phần của kế hoạch, hãy xem ảnh hưởng đến thời gian, công sức và nhu cầu của những người cùng tham gia."
+        },
+        {
+          "title": "Xây để người khác cùng dùng",
+          "description": "Một hướng dẫn dễ hiểu hoặc cách bàn giao gọn gàng giúp kết quả không phụ thuộc hoàn toàn vào riêng bạn."
+        }
+      ],
+      "challenges": [
+        {
+          "title": "Đặt quy mô vượt nguồn lực",
+          "description": "Trước khi mở rộng kế hoạch, hãy thử phiên bản nhỏ với giới hạn thời gian và công sức đã thống nhất."
+        },
+        {
+          "title": "Ôm trách nhiệm để giữ chất lượng",
+          "description": "Chia sẻ tiêu chí hoàn thành rồi giao một phần việc trọn vẹn, để người khác có quyền lựa chọn cách thực hiện."
+        },
+        {
+          "title": "Giữ kế hoạch khi thực tế đã đổi",
+          "description": "Đặt lịch xem lại phản hồi và cho phép bỏ một bước không còn hữu ích, dù bạn đã dành nhiều công sức xây dựng nó."
+        }
+      ],
+      "relationships": "Trong các mối quan hệ, bạn có thể thực hành sự đáng tin bằng những cam kết vừa sức và được thống nhất rõ ràng. Tuy nhiên, giải quyết công việc chung không thay thế cho việc hỏi người kia đang cảm thấy thế nào. Trước khi đưa ra kế hoạch giúp đỡ, hãy hỏi họ cần một người lắng nghe hay muốn cùng tìm cách xử lý; sự đồng hành cần cả tiếng nói của hai phía.",
+      "careerAndGrowth": "Những hoạt động như tổ chức dự án, thiết kế quy trình hoặc phối hợp một việc cộng đồng có thể là nơi thử sức với chủ đề này. Bắt đầu bằng một vấn đề cụ thể, tìm hiểu người sử dụng và đo xem thay đổi có thật sự giúp họ hay không. Không có con số nào bảo đảm năng lực lãnh đạo hay thành công; kỹ năng lập kế hoạch, giao tiếp và điều chỉnh cần được học qua trải nghiệm.",
+      "lifeLesson": "Xây dựng bền vững không đồng nghĩa với việc luôn làm nhiều hơn. Một hệ thống tốt cần chỗ cho nghỉ ngơi, sai sót và người khác tham gia. Khi biết thu nhỏ điều chưa phù hợp và giữ lại phần tạo ích lợi rõ ràng, bạn đang rèn khả năng kiến tạo có trách nhiệm thay vì chỉ theo đuổi một hình dung lớn lao.",
+      "reflection": "Ý tưởng nào của bạn có thể được thử ở quy mô nhỏ để biết nó thật sự giúp ích cho ai?",
+      "affirmation": "Tôi xây dựng từng bước vừa sức và đón nhận sự đóng góp của người khác.",
+      "keywords": [
+        "triển khai tầm nhìn",
+        "phối hợp",
+        "cấu trúc",
+        "ích lợi thực tế"
+      ],
+      "suggestedAction": "Chọn một việc chung còn bất tiện, hỏi người liên quan về nhu cầu của họ rồi thử một cải tiến nhỏ trong bảy ngày. Cuối tuần, cùng xem nên giữ, sửa hay bỏ điều gì."
     }
   ]
 }

@@ -44,7 +44,12 @@ const summariesByKey = new Map(interpretationCatalog.map((item) => [
 export function getInterpretationSummaries(indices: CalculationResult["indices"]) {
   return Object.fromEntries(INDEX_IDS.map((index) => {
     const item = summariesByKey.get(`${index}/${indices[index].value}`);
-    if (!item) throw new ApiError(500, "INTERPRETATION_CONTENT_MISSING", "Required interpretation content is unavailable.");
+    if (!item) {
+      // Static catalog coordinates only: never log input, dates or calculation results.
+      console.error("INTERPRETATION_CONTENT_MISSING", { index, value: indices[index].value });
+      throw new ApiError(500, "INTERPRETATION_CONTENT_MISSING", "Required interpretation content is unavailable.",
+        [{ field: `interpretations.${index}`, code: `MISSING_VALUE_${indices[index].value}` }]);
+    }
     return [index, item];
   })) as Record<IndexId, InterpretationSummary>;
 }
@@ -53,6 +58,8 @@ const definitions = freezePublicData({
   contentVersion: CONTENT_VERSION, status: "draft" as const,
   plannedIndices: [...INDEX_IDS],
   definitions: buildDefinitions((type, value) => Boolean(getInterpretation(type, value))),
-  missingContent: [{ index: "birthday", values: [11, 22] }],
+  missingContent: buildDefinitions((type, value) => Boolean(getInterpretation(type, value)))
+    .map(({ type, supportedValues, availableValues }) => ({ index: type, values: supportedValues.filter((value) => !availableValues.includes(value)) }))
+    .filter(({ values }) => values.length > 0),
 });
 export function getDefinitions() { return definitions; }

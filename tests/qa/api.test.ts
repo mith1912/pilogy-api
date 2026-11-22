@@ -37,10 +37,10 @@ it.each([
   expect(response.status).toBe(200);
   expect((await response.json()).data.name.normalizedName).toBe(normalizedName);
 });
-it.each(["2000-02-29","2024-02-29","2400-02-29"])("validates real leap date %s before reporting missing Birthday 11 content", async (birthDate) => {
+it.each(["2000-02-29","2024-02-29","2400-02-29"])("calculates real leap date %s with Birthday 11 content", async (birthDate) => {
   const response = await POST(request({...input,birthDate}));
-  expect(response.status).toBe(500);
-  expect((await response.json()).error.code).toBe("INTERPRETATION_CONTENT_MISSING");
+  expect(response.status).toBe(200);
+  expect((await response.json()).data.interpretations.birthday).toMatchObject({ value: 11, baseValue: 2 });
 });
 it("verifies all fixture A fields, steps, summaries and repeatability through native handlers", async () => {
   const log = vi.spyOn(console,"log");

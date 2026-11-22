@@ -36,8 +36,7 @@ it("validates real endpoint success envelopes against the published response sch
 it("validates client and server error envelopes against the published schema", async () => {
   const responses = [
     await POST(calculateRequest({})),
-    await POST(calculateRequest({ fullName: "Nguyễn Văn An", birthDate: "1990-05-22", referenceDate: "2026-11-08" })),
-    await content(new Request(`${base}/interpretations/birthday/11`), { params: Promise.resolve({ index: "birthday", value: "11" }) }),
+    await content(new Request(`${base}/interpretations/personalYear/11`), { params: Promise.resolve({ index: "personalYear", value: "11" }) }),
   ];
   for (const response of responses) {
     expect(response.status).toBeGreaterThanOrEqual(400);

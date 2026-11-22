@@ -35,7 +35,7 @@ it("defines all nine types with actual engine and content ranges", async () => {
     expect(item.supportsMasterNumbers).toBe(!["personalYear", "personalMonth"].includes(item.type));
     expect(item.availableValues.every((value) => item.supportedValues.includes(value))).toBe(true);
   });
-  expect(data.definitions.find((item: { type: string }) => item.type === "birthday")).toMatchObject({ supportedValues: [1,2,3,4,5,6,7,8,9,11,22], availableValues: [1,2,3,4,5,6,7,8,9] });
+  expect(data.definitions.find((item: { type: string }) => item.type === "birthday")).toMatchObject({ supportedValues: [1,2,3,4,5,6,7,8,9,11,22], availableValues: [1,2,3,4,5,6,7,8,9,11,22] });
 });
 it.each(["?locale=en", "?locale=", "?extra=x", "?locale=vi&locale=vi"])("validates definitions query %s", async (query) => {
   const response = definitions(new Request(`${base}/definitions${query}`));

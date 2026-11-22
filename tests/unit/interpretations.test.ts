@@ -17,7 +17,7 @@ describe("imported interpretation coverage", () => {
     expect(interpretationCatalog).toHaveLength(items.length);
     for (const item of items) expect(getInterpretation(item.index, item.value)).toEqual(item);
   });
-  it("matches the supplied version and all 99 coverage entries", () => {
+  it("matches the supplied version and all 101 coverage entries", () => {
     expect(CONTENT_VERSION).toBe(coverage.contentVersion);
     expect(interpretationCatalog).toHaveLength(coverage.total);
     for (const index of INDEX_IDS) {
@@ -27,12 +27,22 @@ describe("imported interpretation coverage", () => {
       for (let value = 1; value <= 9; value++) expect(getInterpretation(index, value)).toBeDefined();
     }
   });
-  it("covers core masters and explicitly reports missing Birthday content", () => {
-    for (const index of ["lifePath", "expression", "soulUrge", "personality", "attitude", "maturity"] as const) {
-      for (const value of [11, 22, 33]) expect(getInterpretation(index, value)).toBeDefined();
+  it("covers every advertised value across all nine indices", () => {
+    expect(getDefinitions().missingContent).toEqual([]);
+    for (const definition of getDefinitions().definitions) {
+      expect(definition.availableValues).toEqual(definition.supportedValues);
+      expect(definition.availableValues).toEqual(interpretationCatalog.filter((item) => item.index === definition.type).map((item) => item.value));
+      for (const value of definition.supportedValues) expect(getInterpretation(definition.type, value)).toBeDefined();
     }
-    expect(getDefinitions().missingContent).toEqual([{ index: "birthday", values: [11, 22] }]);
-    for (const value of [11, 22]) expect(getInterpretation("birthday", value)).toBeUndefined();
+  });
+  it("rejects any missing required record in every index file", () => {
+    for (const index of INDEX_IDS) {
+      const items = interpretationCatalog.filter((item) => item.index === index);
+      for (const removed of items) {
+        expect(interpretationFileSchema.safeParse({ locale: "vi", contentVersion: CONTENT_VERSION, index,
+          items: items.filter((item) => item !== removed) }).success).toBe(false);
+      }
+    }
   });
   it("rejects malformed content, wrong bases, cycle masters and duplicates", () => {
     const item = interpretationCatalog[0];
